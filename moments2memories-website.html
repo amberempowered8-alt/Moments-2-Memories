@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moments 2 Memories | Luxury Romantic Experiences — Sedona, AZ</title>
-<meta name="description" content="Moments 2 Memories creates breathtaking luxury romantic experiences in Sedona & Verde Valley, Arizona. Balloon decor, candles, rose petals, and unforgettable setups for proposals, anniversaries, and special occasions.">
+<meta name="description" content="Moments 2 Memories creates breathtaking luxury romantic experiences in Sedona & Verde Valley, Arizona. Custom ambiance, candles, and intentional setups for proposals, anniversaries, and curated couple getaways.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -123,7 +123,6 @@ nav.scrolled .nav-links a { color: var(--muted); }
     linear-gradient(160deg, #1a1210 0%, #2a2420 40%, #3a2820 70%, #2a1e1a 100%);
 }
 
-/* Candle glow orbs */
 .glow-1, .glow-2, .glow-3 {
   position: absolute;
   border-radius: 50%;
@@ -155,7 +154,6 @@ nav.scrolled .nav-links a { color: var(--muted); }
   50% { opacity: 1; transform: scale(1.1); }
 }
 
-/* Floating particles */
 .particle {
   position: absolute;
   border-radius: 50%;
@@ -287,7 +285,6 @@ nav.scrolled .nav-links a { color: var(--muted); }
 .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(201,168,110,0.5), transparent); animation: scrollLine 2s ease-in-out infinite; }
 @keyframes scrollLine { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
 
-/* ===================== SECTIONS BASE ===================== */
 section { position: relative; }
 
 .section-eyebrow {
@@ -326,9 +323,7 @@ section { position: relative; }
   align-items: center;
 }
 
-.about-visual {
-  position: relative;
-}
+.about-visual { position: relative; }
 
 .about-img-frame {
   aspect-ratio: 3/4;
@@ -402,7 +397,6 @@ section { position: relative; }
 }
 
 .about-text { padding-right: 20px; }
-
 .about-text .section-title { margin-bottom: 28px; }
 
 .about-text p {
@@ -528,9 +522,7 @@ section { position: relative; }
 .package-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   opacity: 0;
@@ -712,7 +704,6 @@ section { position: relative; }
 }
 
 .gallery-item:hover { transform: scale(0.98); }
-
 .gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
 .gallery-item:nth-child(2) { grid-column: span 4; }
 .gallery-item:nth-child(3) { grid-column: span 3; }
@@ -849,7 +840,6 @@ section { position: relative; }
   line-height: 1.6;
 }
 
-/* Form */
 .booking-form {
   background: var(--ivory-dark);
   border: 1px solid rgba(201,168,110,0.2);
@@ -1119,16 +1109,13 @@ footer::before {
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 
   .hero-actions { flex-direction: column; align-items: center; }
-
   .form-row { grid-template-columns: 1fr; }
-
   .about, .services, .gallery, .booking { padding: 80px 0; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">Moments 2 Memories</a>
   <ul class="nav-links">
@@ -1139,7 +1126,6 @@ footer::before {
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="glow-1"></div>
@@ -1154,15 +1140,15 @@ footer::before {
   <div class="hero-content">
     <div class="hero-eyebrow">Sedona & Verde Valley, Arizona</div>
     <h1 class="hero-title">Where Love Becomes <em>Unforgettable</em></h1>
-    <p class="hero-subtitle">Luxury romantic experiences crafted with intention — balloons, candles, rose petals, and every detail in between.</p>
+    <p class="hero-subtitle">Private, highly curated luxury couple experiences designed around your shared history and styled with impeccable detail.</p>
     <div class="hero-divider">
       <div class="hero-divider-line"></div>
       <span>🌹</span>
       <div class="hero-divider-line r"></div>
     </div>
     <div class="hero-actions">
-      <a href="#booking" class="btn-primary">Book an Experience</a>
-      <a href="#services" class="btn-secondary">View Packages</a>
+      <a href="#booking" class="btn-primary">Inquire for Your Date</a>
+      <a href="#services" class="btn-secondary">View Tiers</a>
     </div>
   </div>
 
@@ -1172,7 +1158,6 @@ footer::before {
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-visual reveal">
@@ -1180,7 +1165,7 @@ footer::before {
       <div class="about-img-frame">
         <div class="about-img-placeholder">
           <div class="icon">🕯️</div>
-          <p>Add your photo here</p>
+          <p>Portfolio Showcase coming soon</p>
         </div>
       </div>
       <div class="about-accent-box">
@@ -1192,16 +1177,16 @@ footer::before {
     <div class="about-text reveal">
       <div class="section-eyebrow">Our Story</div>
       <h2 class="section-title">Two Friends, One <em>Dream</em></h2>
-      <p>We are <strong>Bre and Amber</strong>, two friends based in the heart of the Verde Valley who believe that love deserves to be celebrated with intention, beauty, and care. What started as a shared passion for creating magical moments has grown into something we couldn't be more proud of.</p>
-      <p>Moments 2 Memories was born from the simple belief that <strong>every love story deserves its perfect scene.</strong> Whether it's a candlelit proposal beneath Sedona's red rocks, an intimate anniversary surprise, or a birthday celebration that takes your breath away — we design experiences that you'll carry with you forever.</p>
-      <p>From the first balloon to the last rose petal, every detail is placed with love.</p>
+      <p>We are <strong>Bre and Amber</strong>, two visionaries based in the Verde Valley who believe that partnership deserves to be honored with intentionality, deep aesthetic cohesion, and luxury execution.</p>
+      <p>Moments 2 Memories was built to abandon modern, generic room decoration trends in favor of something permanent: <strong>architecting immersive romantic sanctuaries.</strong> Whether it's a structural milestone beneath Sedona’s crimson horizons, an anniversary sunset reset, or a surprise curated arrival — we build custom experiences that map to your story.</p>
+      <p>From architectural floral accents to custom sensory design, every square inch is styled with precision.</p>
 
       <div class="about-founders">
         <div class="founder">
           <div class="founder-avatar">B</div>
           <div class="founder-info">
             <div class="name">Bre</div>
-            <div class="title">Co-Founder</div>
+            <div class="title">Co-Founder & Design Principal</div>
           </div>
         </div>
         <div class="founder-sep"></div>
@@ -1209,7 +1194,7 @@ footer::before {
           <div class="founder-avatar">A</div>
           <div class="founder-info">
             <div class="name">Amber</div>
-            <div class="title">Co-Founder</div>
+            <div class="title">Co-Founder & Systems Architect</div>
           </div>
         </div>
       </div>
@@ -1217,294 +1202,81 @@ footer::before {
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services" id="services">
   <div class="services-inner">
     <div class="services-header reveal">
-      <div class="section-eyebrow">Services & Packages</div>
-      <h2 class="section-title" style="color:var(--ivory)">Crafted for Every <em>Occasion</em></h2>
-      <p>Each package is thoughtfully designed and fully customizable. Every setup is one of a kind — just like your love story.</p>
+      <div class="section-eyebrow">The Experience Framework</div>
+      <h2 class="section-title" style="color:var(--ivory)">Tailored Experience <em>Tiers</em></h2>
+      <p>Select your tier, define your unique aesthetic lane, and co-create an unforgettable moment with our concierge design team.</p>
     </div>
 
     <div class="packages-grid">
-      <!-- Package 1 -->
-      <div class="package-card reveal">
-        <div class="package-icon">🌸</div>
-        <div class="package-name">The Blush</div>
-        <div class="package-tagline">Sweet & Simple</div>
-        <div class="package-price">$XXX<span> starting</span></div>
-        <div class="package-price-note">Perfect for birthdays & surprises</div>
-        <div class="package-divider"></div>
-        <ul class="package-features">
-          <li>Balloon arrangement (color of choice)</li>
-          <li>Rose petal floor design</li>
-          <li>3 pillar candles with votives</li>
-          <li>Personalized signage</li>
-          <li>Setup & breakdown included</li>
-        </ul>
-        <a href="#booking" class="package-btn">Book This Package</a>
-      </div>
-
-      <!-- Package 2 - Featured -->
-      <div class="package-card featured reveal">
-        <div class="featured-badge">Most Popular</div>
-        <div class="package-icon">🌹</div>
-        <div class="package-name">The Romance</div>
-        <div class="package-tagline">Signature Experience</div>
-        <div class="package-price">$XXX<span> starting</span></div>
-        <div class="package-price-note">Ideal for proposals & anniversaries</div>
-        <div class="package-divider"></div>
-        <ul class="package-features">
-          <li>Luxury balloon arch or column display</li>
-          <li>Full rose petal floor & bed design</li>
-          <li>10+ candles with custom arrangement</li>
-          <li>Champagne & chocolate add-on available</li>
-          <li>Personalized signage & florals</li>
-          <li>Setup & breakdown included</li>
-        </ul>
-        <a href="#booking" class="package-btn">Book This Package</a>
-      </div>
-
-      <!-- Package 3 -->
       <div class="package-card reveal">
         <div class="package-icon">✨</div>
-        <div class="package-name">The Luxe</div>
-        <div class="package-tagline">All-Inclusive Experience</div>
-        <div class="package-price">$XXX<span> starting</span></div>
-        <div class="package-price-note">The ultimate romantic statement</div>
+        <div class="package-name">Signature Arrival</div>
+        <div class="package-tagline">Refined Travel Enhancement</div>
+        <div class="package-price">$199<span> starting</span></div>
+        <div class="package-price-note">Tailored for luxury travelers & hotel check-ins</div>
         <div class="package-divider"></div>
         <ul class="package-features">
-          <li>Custom balloon installation (any style)</li>
-          <li>Full petal design — floor, bed & path</li>
-          <li>Candlelit ambiance — 20+ candles</li>
-          <li>Florals, champagne & chocolates</li>
-          <li>Custom music playlist setup</li>
-          <li>Photography coordination</li>
-          <li>Full setup, styling & breakdown</li>
+          <li>Ambient architectural lighting upgrades</li>
+          <li>Elevated candle formatting (minimalist & intentional)</li>
+          <li>Focal point spatial linens & minimalist bed styling</li>
+          <li>Handcrafted, personalized message typography card</li>
+          <li>Curated sensory elements & high-end small treats</li>
+          <li>Selectable Style Direction (Classic, Celebration, Modern Luxe)</li>
         </ul>
-        <a href="#booking" class="package-btn">Book This Package</a>
+        <a href="#booking" class="package-btn">Inquire for Date</a>
+      </div>
+
+      <div class="package-card featured reveal">
+        <div class="featured-badge">Core Experience</div>
+        <div class="package-icon">🌹</div>
+        <div class="package-name">Milestone Moments</div>
+        <div class="package-tagline">Story-Driven Customization</div>
+        <div class="package-price">$499<span> starting</span></div>
+        <div class="package-price-note">Engineered for proposals, anniversaries, & resets</div>
+        <div class="package-divider"></div>
+        <ul class="package-features">
+          <li>Strategic narrative consultation to capture your story</li>
+          <li>Bespoke spatial message staging or themed framework</li>
+          <li>High-impact structural design focal area</li>
+          <li>Multi-sensory curation (custom audio & scent profiles)</li>
+          <li>Full installation, strict styling controls, & post-event cleanup</li>
+          <li>Access to elite add-ons (Photography, Private Chef coordination)</li>
+        </ul>
+        <a href="#booking" class="package-btn">Inquire for Date</a>
+      </div>
+
+      <div class="package-card reveal">
+        <div class="package-icon">⚜️</div>
+        <div class="package-name">Luxe Custom</div>
+        <div class="package-tagline">White-Glove Architectural Production</div>
+        <div class="package-price">Inquiry<span> only</span></div>
+        <div class="package-price-note">The definitive ultra-luxury declaration</div>
+        <div class="package-divider"></div>
+        <ul class="package-features">
+          <li>Unrestricted custom design consulting & full scale renders</li>
+          <li>Premium luxury floral and site installations</li>
+          <li>End-to-end luxury travel & venue coordination options</li>
+          <li>Comprehensive multi-vendor network integration</li>
+          <li>Dedicated on-site production team & full structural builds</li>
+          <li>Strict margin management to guarantee design prestige</li>
+        </ul>
+        <a href="#booking" class="package-btn">Inquire for Date</a>
       </div>
     </div>
 
-    <p class="services-note reveal">Not sure which package is right for you? <a href="#booking">Let's chat</a> — we love creating custom experiences.</p>
+    <p class="services-note reveal">Looking to explore our visual guardrails? Our three distinct aesthetic options (<strong>Classic Romance</strong>, <strong>Celebration Energy</strong>, and <strong>Modern Luxe</strong>) ensure your experience remains strictly cohesive and breathtaking. <a href="#booking">Let's design yours</a>.</p>
   </div>
 </section>
 
-<!-- GALLERY -->
 <section class="gallery" id="gallery">
   <div class="gallery-inner">
     <div class="gallery-header reveal">
-      <div class="section-eyebrow">Gallery</div>
+      <div class="section-eyebrow">The Lookbook Archive</div>
       <h2 class="section-title">A Glimpse of the <em>Magic</em></h2>
-      <p>Every setup tells a story. Add your photos here to let your work speak for itself.</p>
+      <p>Atmosphere captures from our custom architectural layouts. Real moments, zero generic trends.</p>
     </div>
 
-    <div class="gallery-grid reveal">
-      <div class="gallery-item">
-        <div class="gallery-placeholder"><div class="icon">🌹</div><p>Add photo</p></div>
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Romantic Setup</div></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder"><div class="icon">🎈</div><p>Add photo</p></div>
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Balloon Arch</div></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder"><div class="icon">🕯️</div><p>Add photo</p></div>
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Candlelit Ambiance</div></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder"><div class="icon">💍</div><p>Add photo</p></div>
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Proposal Setup</div></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder"><div class="icon">✨</div><p>Add photo</p></div>
-        <div class="gallery-overlay"><div class="gallery-overlay-text">Luxe Experience</div></div>
-      </div>
-    </div>
-
-    <div class="gallery-cta reveal">
-      <p>Follow us for daily inspiration</p>
-      <a href="#" class="btn-primary" style="display:inline-block">@moments2memories</a>
-    </div>
-  </div>
-</section>
-
-<!-- BOOKING -->
-<section class="booking" id="booking">
-  <div class="booking-inner">
-    <div class="booking-info reveal">
-      <div class="section-eyebrow">Book an Experience</div>
-      <h2 class="section-title">Let's Create Your <em>Moment</em></h2>
-      <p>Fill out the form and we'll be in touch within 24 hours to begin planning your perfect experience. We can't wait to hear your story.</p>
-
-      <div class="booking-details">
-        <div class="booking-detail">
-          <div class="booking-detail-icon">📍</div>
-          <div class="booking-detail-text">
-            <div class="label">Service Area</div>
-            <p>Sedona, Verde Valley & surrounding areas of Arizona</p>
-          </div>
-        </div>
-        <div class="booking-detail">
-          <div class="booking-detail-icon">📅</div>
-          <div class="booking-detail-text">
-            <div class="label">Booking Window</div>
-            <p>We recommend booking at least 2 weeks in advance for peak dates</p>
-          </div>
-        </div>
-        <div class="booking-detail">
-          <div class="booking-detail-icon">✉️</div>
-          <div class="booking-detail-text">
-            <div class="label">Email Us</div>
-            <p>hello@moments2memories.com</p>
-          </div>
-        </div>
-        <div class="booking-detail">
-          <div class="booking-detail-icon">📞</div>
-          <div class="booking-detail-text">
-            <div class="label">Call or Text</div>
-            <p>(928) 555-0000</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="booking-form reveal">
-      <div class="form-title">Tell Us About Your Moment</div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="First & Last Name">
-        </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" placeholder="(928) 000-0000">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="your@email.com">
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Occasion</label>
-          <select>
-            <option value="">Select Occasion</option>
-            <option>Proposal</option>
-            <option>Anniversary</option>
-            <option>Birthday</option>
-            <option>Valentine's Day</option>
-            <option>Date Night</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Package Interest</label>
-          <select>
-            <option value="">Select Package</option>
-            <option>The Blush</option>
-            <option>The Romance</option>
-            <option>The Luxe</option>
-            <option>Custom / Not Sure</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Preferred Date</label>
-        <input type="date">
-      </div>
-
-      <div class="form-group">
-        <label>Tell Us Your Vision</label>
-        <textarea placeholder="Share any details — location, color preferences, special requests, or anything that makes this moment uniquely yours..."></textarea>
-      </div>
-
-      <button class="form-submit">Send My Request ✦</button>
-      <p class="form-note">We respond within 24 hours 🌹</p>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo">Moments 2 <em>Memories</em></div>
-        <p>Luxury romantic experiences designed with love, crafted with intention — serving Sedona & the Verde Valley.</p>
-        <div class="footer-social">
-          <a href="#" class="social-btn">📷</a>
-          <a href="#" class="social-btn">📘</a>
-          <a href="#" class="social-btn">🎵</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="#about">Our Story</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#booking">Book Now</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <address>
-          Clarkdale, AZ<br>
-          Serving Sedona &<br>
-          Verde Valley<br><br>
-          (928) 555-0000<br>
-          hello@moments2memories.com
-        </address>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2025 Moments 2 Memories · All Rights Reserved</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Nav scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
-
-  // Smooth form (prevent default for demo)
-  document.querySelector('.form-submit').addEventListener('click', (e) => {
-    e.preventDefault();
-    const btn = e.target;
-    btn.textContent = 'Message Sent! We\'ll be in touch 🌹';
-    btn.style.background = 'var(--rose-dark)';
-    setTimeout(() => {
-      btn.textContent = 'Send My Request ✦';
-      btn.style.background = '';
-    }, 3000);
-  });
-</script>
-</body>
-</html>
+    <div class
