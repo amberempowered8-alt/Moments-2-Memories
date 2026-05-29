@@ -395,86 +395,8 @@
             color: var(--gold-accent);
         }
 
-        /* Intake Structural Container */
-        .intake-section {
-            padding: 120px 10%;
-            background: var(--bg-dark);
-            display: flex;
-            justify-content: center;
-        }
-
-        .intake-container {
-            width: 100%;
-            max-width: 750px;
-            background: var(--panel-bg);
-            border: 1px solid rgba(212,175,55,0.15);
-            padding: 60px 50px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
-        .form-group label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold-accent);
-            margin-bottom: 10px;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            background: rgba(28,22,19,0.6);
-            border: 1px solid rgba(212,175,55,0.2);
-            padding: 15px;
-            color: var(--text-light);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            transition: all 0.4s ease;
-        }
-
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold-accent);
-            background: rgba(28,22,19,0.9);
-        }
-
-        .submit-btn {
-            grid-column: span 2;
-            background: transparent;
-            border: 1px solid var(--gold-accent);
-            color: var(--gold-accent);
-            padding: 18px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            margin-top: 15px;
-        }
-
-        .submit-btn:hover {
-            background: var(--gold-accent);
-            color: var(--bg-dark);
-            box-shadow: 0 0 20px rgba(212,175,55,0.3);
-        }
-
         footer {
-            padding: 40px;
+            padding: 60px 40px;
             text-align: center;
             font-size: 0.7rem;
             letter-spacing: 2px;
@@ -497,10 +419,6 @@
             .identity-block { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
             .tier-grid { grid-template-columns: 1fr; }
             .lookbook-grid { grid-template-columns: 1fr; }
-            .form-grid { grid-template-columns: 1fr; }
-            .form-group.full-width { grid-column: span 1; }
-            .submit-btn { grid-column: span 1; }
-            .intake-container { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -513,7 +431,7 @@
             <li><a href="#tiers">The Tiers</a></li>
             <li><a href="#canvas">The Curated Canvas</a></li>
         </ul>
-        <a href="#intake" class="cta-btn">Initiate Intake</a>
+        <a href="#tiers" class="cta-btn">Book An Experience</a>
     </nav>
 
     <header class="hero-canvas">
@@ -570,7 +488,7 @@
                         <li>Full Design Setup, Structural Strike, and Logistics Cleanup</li>
                     </ul>
                 </div>
-                <a href="#intake" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
+                <a href="https://payhip.com/b/hiOmp" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
             </div>
 
             <div class="tier-card">
@@ -588,7 +506,7 @@
                         <li>Enhanced Multi-Room Floor Coverage and Luxury Focal Point Staging</li>
                     </ul>
                 </div>
-                <a href="#intake" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
+                <a href="https://payhip.com/b/tx6ys" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
             </div>
         </div>
     </section>
@@ -604,7 +522,7 @@
                 <img src="images/proposal1.jpg" alt="Luxury Sedona Proposal Backdrop">
                 <div class="lookbook-overlay">
                     <span>Proposals</span>
-                    <h4>Sedona Red Rocks</h4>
+                    <h4>Phoenix Skyline</h4>
                 </div>
             </div>
             
@@ -623,54 +541,6 @@
                     <h4>Bespoke Crimson & Gold</h4>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="intake" class="intake-section">
-        <div class="intake-container">
-            <h3 class="serif-font" style="font-size: 2.8rem; text-align: center; margin-bottom: 10px; color: var(--gold-accent);">Initiate Intake</h3>
-            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-align: center; opacity: 0.7;">Secure Your Structural Date Placement</p>
-            
-            <form action="https://formspree.io/f/xvonzgzo" method="POST" class="form-grid">
-                <div class="form-group">
-                    <label for="client-name">Full Name</label>
-                    <input type="text" id="client-name" name="name" required placeholder="Your full name">
-                </div>
-                <div class="form-group">
-                    <label for="client-email">Email Address</label>
-                    <input type="email" id="client-email" name="email" required placeholder="your.email@domain.com">
-                </div>
-                <div class="form-group">
-                    <label for="client-phone">Phone Number</label>
-                    <input type="tel" id="client-phone" name="phone" required placeholder="(555) 000-0000">
-                </div>
-                <div class="form-group">
-                    <label for="event-date">Requested Date</label>
-                    <input type="date" id="event-date" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="event-location">Event Region / Venue</label>
-                    <select id="event-location" name="location" required>
-                        <option value="" disabled selected>Select location region</option>
-                        <option value="Sedona">Sedona Region</option>
-                        <option value="Phoenix">Phoenix Metro Area</option>
-                        <option value="Verde-Valley">Verde Valley / Clarkdale Area</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="experience-tier">Experience Selection</label>
-                    <select id="experience-tier" name="tier" required>
-                        <option value="" disabled selected>Choose your design tier</option>
-                        <option value="signature">Signature Arrival — $100 Hold Fee</option>
-                        <option value="milestone">Milestone Moments — $250 Hold Fee</option>
-                    </select>
-                </div>
-                <div class="form-group full-width">
-                    <label for="design-vision">Aesthetic Intent & Notes</label>
-                    <textarea id="design-vision" name="vision" rows="4" placeholder="Tell Bre and Amber about your dream vision, color preferences, hotel room details, or surprise timeline notes..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Authorize Design Intake</button>
-            </form>
         </div>
     </section>
 
