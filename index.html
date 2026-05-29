@@ -684,13 +684,349 @@ section { position: relative; }
 }
 
 /* ===================== GALLERY ===================== */
-.gallery {
-  padding: 120px 0;
-  background: var(--ivory-dark);
-  overflow: hidden;
+.gallery-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+.gallery-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+.gallery-item {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,110,0.2);
+    background: var(--ivory);
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(42,36,32,0.85) 0%, rgba(42,36,32,0.2) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+.gallery-overlay h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--ivory);
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 4px;
+}
+.gallery-overlay p {
+    color: var(--gold-light);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.gallery-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding
+/* ===================== INTAKE FORM ===================== */
+.intake {
+    padding: 120px 0;
+    background: var(--ivory);
+}
+.intake-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.intake-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.intake-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+@media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.form-group label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.form-group input, .form-group select, .form-group textarea {
+    padding: 16px;
+    background: var(--ivory-dark);
+    border: 1px solid rgba(201,168,110,0.2);
+    color: var(--charcoal);
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+.submit-btn {
+    padding: 20px;
+    background: var(--charcoal);
+    color: var(--ivory);
+    border: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+.submit-btn:hover {
+    background: var(--gold);
+    color: var(--charcoal);
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+    background: var(--charcoal);
+    padding: 60px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,110,0.1);
+}
+.footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+.footer-text {
+    font-size: 12px;
+    color: var(--muted-light);
+    letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">Moments 2 Memories</a>
+        <ul class="nav-links">
+            <li><a href="#about">The Identity</a></li>
+            <li><a href="#services">The Tiers</a></li>
+            <li><a href="#gallery">The Curated Canvas</a></li>
+        </ul>
+        <a href="#book" class="nav-cta">Initiate Intake</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="glow-1"></div><div class="glow-2"></div><div class="glow-3"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Luxury Romantic Architecture ✦ Sedona</div>
+            <h1 class="hero-title">We engineer moments.<br>You capture the <em>memory</em>.</h1>
+            <div class="hero-divider">
+                <div class="hero-divider-line"></div>
+                <span>✦</span>
+                <div class="hero-divider-line r"></div>
+            </div>
+            <p class="hero-subtitle">Bespoke luxury ambiances, candlelight curations, and high-end aesthetic designs tailored meticulously inside Sedona's premium resort spaces.</p>
+            <div class="hero-actions" style="margin-top: 40px;">
+                <a href="#services" class="btn-primary">Secure Curation Lock</a>
+                <a href="#gallery" class="btn-secondary">View Showcase</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-inner">
+            <div class="about-visual">
+                <div class="about-corner"></div>
+                <div class="about-img-frame">
+                    <img src="images/logo.png" alt="M2M Brand Icon" style="width:100%; height:100%; object-fit:contain; padding:40px;">
+                </div>
+                <div class="about-accent-box">
+                    <div class="number">01</div>
+                    <div class="label">Regional<br>Prestige</div>
+                </div>
+            </div>
+            <div class="about-text">
+                <div class="section-eyebrow">The Collective Identity</div>
+                <h2 class="section-title">Bespoke luxury built on <em>asynchronous validation</em>.</h2>
+                <p>Moments 2 Memories transforms luxury romantic architecture across Sedona and the Verde Valley. We eliminate generic catalog setups, intentionally curating custom environments unique to each pair.</p>
+                <p>Our design desks function strictly via a pre-authorized queue gate, assuring every placement matches premium local hospitality parameters seamlessly.</p>
+                <div class="about-founders">
+                    <div class="founder">
+                        <div class="founder-avatar">B</div>
+                        <div class="founder-info"><div class="name">Bre</div><div class="title">Design Principal</div></div>
+                    </div>
+                    <div class="founder-sep"></div>
+                    <div class="founder">
+                        <div class="founder-avatar">A</div>
+                        <div class="founder-info"><div class="name">Amber</div><div class="title">Operations Lead</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="services-inner">
+            <div class="services-header">
+                <div class="section-eyebrow">Secure Time & Space Parameters</div>
+                <h2 class="section-title">The Curated <em>Retainer Tiers</em></h2>
+                <p>Select your operational scope. Retainer blocks lock down calendar access instantly while our design office clears site-line authorizations.</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-icon">✦</div>
+                    <h3 class="package-name">Signature Arrival</h3>
+                    <div class="package-tagline">Intentional Standard Elegance</div>
+                    <div class="package-price"><span class="currency-sign">$</span>99<span>.50</span></div>
+                    <div class="package-price-note">Non-Refundable Secure Hold Fee</div>
+                    <div class="package-divider"></div>
+                    <ul class="package-features">
+                        <li>Bespoke candlelight alignment mapping</li>
+                        <li>Deluxe presentation structures</li>
+                        <li>Resort space integration logistics</li>
+                    </ul>
+                    <a href="YOUR_PAYHIP_PRODUCT_1_LINK" class="package-btn" target="_blank">Lock Retainer</a>
+                </div>
+                <div class="package-card featured">
+                    <div class="featured-badge">Highly Requested</div>
+                    <div class="package-icon">✨</div>
+                    <h3 class="package-name">Milestone Moments</h3>
+                    <div class="package-tagline">Proposals & Anniversaries</div>
+                    <div class="package-price"><span class="currency-sign">$</span>249<span>.50</span></div>
+                    <div class="package-price-note">Non-Refundable Secure Hold Fee</div>
+                    <div class="package-divider"></div>
+                    <ul class="package-features">
+                        <li>Custom premium flower-wall or arch design</li>
+                        <li>High-end illuminated marquee structures</li>
+                        <li>Comprehensive coordination blueprint mapping</li>
+                    </ul>
+                    <a href="YOUR_PAYHIP_PRODUCT_2_LINK" class="package-btn" target="_blank">Lock Retainer</a>
+                </div>
+                <div class="package-card">
+                    <div class="package-icon">👑</div>
+                    <h3 class="package-name">Vanguard Bespoke</h3>
+                    <div class="package-tagline">Elite Custom Production</div>
+                    <div class="package-price"><span>Custom</span></div>
+                    <div class="package-price-note">Inquire via Design Office Desk</div>
+                    <div class="package-divider"></div>
+                    <ul class="package-features">
+                        <li>Multi-location set transitions</li>
+                        <li>Exclusive private landing domain locks</li>
+                        <li>Full luxury custom structural fabrications</li>
+                    </ul>
+                    <a href="#book" class="package-btn">Inquire Directly</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="gallery-inner">
+            <div class="gallery-header">
+                <div class="section-eyebrow">The Lookbook Matrix</div>
+                <h2 class="section-title">Visualized <em>Aesthetics</em></h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/proposal1.jpg" alt="Sedona Proposal Curation">
+                    <div class="gallery-overlay">
+                        <h3>Red Rock Proposal</h3>
+                        <p>Marquee Arch Layout</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/anniversary1.jpg" alt="Luxury Anniversary Suite Room">
+                    <div class="gallery-overlay">
+                        <h3>Resort Suite Renewal</h3>
+                        <p>Candlelight Pathway Setup</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/anniversary2.jpg" alt="Deluxe Room Setup Close-up">
+                    <div class="gallery-overlay">
+                        <h3>Bespoke Intimacy</h3>
+                        <p>Floral Canopy Ambiance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book" class="intake">
+        <div class="intake-inner">
+            <div class="intake-header">
+                <div class="section-eyebrow">Calendar Registration Gate</div>
+                <h2 class="section-title">Initiate <em>Validation</em></h2>
+            </div>
+            <form class="intake-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-row">
+                    <div class="form-group"><label>Client Name</label><input type="text" name="name" required></div>
+                    <div class="form-group"><label>Contact Coordinates (Email)</label><input type="email" name="email" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Target Event Date</label><input type="date" name="event_date" required></div>
+                    <div class="form-group">
+                        <label>Target Execution Tier</label>
+                        <select name="tier" required>
+                            <option value="Signature Arrival ($99.50)">Signature Arrival — $99.50</option>
+                            <option value="Milestone Moments ($249.50)">Milestone Moments — $249.50</option>
+                            <option value="Vanguard Bespoke (Custom)">Vanguard Bespoke — Custom Scope</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group"><label>Resort Profile & Special Parameters</label><textarea name="notes" rows="5" placeholder="Specify resort suite location, design aesthetic preferences, ceiling heights, or timing parameters..."></textarea></div>
+                <button type="submit" class="submit-btn">Transmit Intake Profile</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Moments 2 Memories</div>
+        <div class="footer-text">© 2026 M2M_AZ Collective. All rights reserved. Design parameters engineered asynchronously.</div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
