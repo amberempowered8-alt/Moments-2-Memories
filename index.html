@@ -1,1032 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moments 2 Memories | Luxury Romantic Experiences — Sedona, AZ</title>
-<meta name="description" content="Moments 2 Memories creates breathtaking luxury romantic experiences in Sedona & Verde Valley, Arizona. Custom ambiance, candles, and intentional setups for proposals, anniversaries, and curated couple getaways.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --blush: #e8c4bc;
-  --rose: #c9887a;
-  --rose-dark: #a86d61;
-  --gold: #c9a96e;
-  --gold-light: #e8d5a3;
-  --gold-pale: #f5edd8;
-  --ivory: #faf6f1;
-  --ivory-dark: #f2ece4;
-  --charcoal: #2a2420;
-  --charcoal-mid: #3d3330;
-  --muted: #8a7a74;
-  --muted-light: #b5a9a4;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Jost', sans-serif;
-  background: var(--ivory);
-  color: var(--charcoal);
-  overflow-x: hidden;
-}
-
-/* ===================== NAV ===================== */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 24px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: all 0.4s ease;
-  background: rgba(42, 36, 32, 0.4);
-  backdrop-filter: blur(8px);
-}
-
-nav.scrolled {
-  background: rgba(250,246,241,0.95);
-  backdrop-filter: blur(12px);
-  padding: 14px 48px;
-  box-shadow: 0 1px 0 rgba(201,168,110,0.2);
-}
-
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--ivory);
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  transition: color 0.4s;
-}
-
-nav.scrolled .nav-logo { color: var(--charcoal); }
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: rgba(250,246,241,0.8);
-  font-weight: 300;
-  transition: color 0.3s;
-}
-
-nav.scrolled .nav-links a { color: var(--muted); }
-.nav-links a:hover { color: var(--gold) !important; }
-
-.nav-cta {
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--gold) !important;
-  border: 1px solid rgba(201,168,110,0.5);
-  padding: 10px 22px;
-  transition: all 0.3s ease;
-}
-
-.nav-cta:hover {
-  background: var(--gold) !important;
-  color: white !important;
-  border-color: var(--gold);
-}
-
-/* ===================== HERO ===================== */
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  padding: 0 24px;
-  margin: 140px auto 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,136,122,0.25) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 20% 20%, rgba(201,168,110,0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 50% at 80% 10%, rgba(232,196,188,0.12) 0%, transparent 50%),
-    linear-gradient(160deg, #1a1210 0%, #2a2420 40%, #3a2820 70%, #2a1e1a 100%);
-}
-
-.glow-1, .glow-2, .glow-3 {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: glowPulse ease-in-out infinite;
-}
-.glow-1 {
-  width: 300px; height: 300px;
-  bottom: -50px; left: 15%;
-  background: radial-gradient(circle, rgba(201,168,110,0.12) 0%, transparent 70%);
-  animation-duration: 4s;
-}
-.glow-2 {
-  width: 200px; height: 200px;
-  top: 20%; right: 10%;
-  background: radial-gradient(circle, rgba(201,136,122,0.1) 0%, transparent 70%);
-  animation-duration: 5s; animation-delay: 1s;
-}
-.glow-3 {
-  width: 400px; height: 400px;
-  top: -100px; left: 50%;
-  transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(232,196,188,0.06) 0%, transparent 70%);
-  animation-duration: 6s; animation-delay: 2s;
-}
-
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
-
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: floatUp linear infinite;
-  opacity: 0;
-}
-.particle:nth-child(1) { width:3px;height:3px;left:15%;background:rgba(201,168,110,0.4);animation-duration:8s;animation-delay:0s; }
-.particle:nth-child(2) { width:2px;height:2px;left:30%;background:rgba(232,196,188,0.5);animation-duration:10s;animation-delay:2s; }
-.particle:nth-child(3) { width:3px;height:3px;left:55%;background:rgba(201,168,110,0.3);animation-duration:9s;animation-delay:4s; }
-.particle:nth-child(4) { width:2px;height:2px;left:70%;background:rgba(201,136,122,0.4);animation-duration:11s;animation-delay:1s; }
-.particle:nth-child(5) { width:3px;height:3px;left:85%;background:rgba(232,196,188,0.4);animation-duration:7s;animation-delay:3s; }
-
-@keyframes floatUp {
-  0% { transform: translateY(100vh); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 0.5; }
-  100% { transform: translateY(-10vh); opacity: 0; }
-}
-
-.hero-eyebrow {
-  font-size: 10px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 300;
-  margin-bottom: 24px;
-  animation: fadeUp 1s 0.3s both;
-  opacity: 0;
-  text-align: center;
-}
-
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(38px, 6.5vw, 76px);
-  font-weight: 300;
-  color: var(--ivory);
-  line-height: 1.3;
-  letter-spacing: -0.5px;
-  text-align: center;
-  animation: fadeUp 1s 0.5s both;
-  opacity: 0;
-  padding: 10px 0;
-  width: 100%;
-}
-
-.hero-title em {
-  font-style: italic;
-  color: var(--blush);
-}
-
-.hero-subtitle {
-  margin-top: 24px;
-  font-size: 14px;
-  font-weight: 200;
-  letter-spacing: 2px;
-  color: rgba(250,246,241,0.6);
-  line-height: 1.8;
-  animation: fadeUp 1s 0.7s both;
-  opacity: 0;
-  text-align: center;
-  max-width: 600px;
-}
-
-.hero-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 36px 0;
-  animation: fadeUp 1s 0.9s both;
-  opacity: 0;
-}
-.hero-divider-line { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,110,0.5)); }
-.hero-divider-line.r { background: linear-gradient(90deg, rgba(201,168,110,0.5), transparent); }
-.hero-divider span { color: var(--gold); font-size: 16px; }
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  animation: fadeUp 1s 1.1s both;
-  opacity: 0;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 16px 40px;
-  background: var(--gold);
-  color: var(--charcoal);
-  text-decoration: none;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,110,0.3); }
-
-.btn-secondary {
-  display: inline-block;
-  padding: 16px 40px;
-  border: 1px solid rgba(250,246,241,0.3);
-  color: var(--ivory);
-  text-decoration: none;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 300;
-  transition: all 0.3s ease;
-}
-.btn-secondary:hover { border-color: var(--blush); color: var(--blush); transform: translateY(-2px); }
-
-.hero-scroll {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  animation: fadeUp 1s 1.4s both;
-  opacity: 0;
-  z-index: 2;
-}
-.hero-scroll span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,246,241,0.4); }
-.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(201,168,110,0.5), transparent); animation: scrollLine 2s ease-in-out infinite; }
-@keyframes scrollLine { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
-
-section { position: relative; }
-
-.section-eyebrow {
-  font-size: 10px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 300;
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 5vw, 58px);
-  font-weight: 300;
-  color: var(--charcoal);
-  line-height: 1.1;
-}
-
-.section-title em { font-style: italic; color: var(--rose); }
-
-/* ===================== ABOUT ===================== */
-.about {
-  padding: 120px 0;
-  background: var(--ivory);
-  overflow: hidden;
-}
-
-.about-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.about-visual { position: relative; }
-
-.about-img-frame {
-  aspect-ratio: 3/4;
-  background: linear-gradient(135deg, var(--charcoal-mid) 0%, var(--charcoal) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.about-img-frame::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 30% 70%, rgba(201,136,122,0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 70% 20%, rgba(201,168,110,0.15) 0%, transparent 50%);
-}
-
-.about-img-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: rgba(250,246,241,0.3);
-}
-
-.about-img-placeholder .icon { font-size: 48px; opacity: 0.4; }
-.about-img-placeholder p { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
-
-.about-accent-box {
-  position: absolute;
-  bottom: -24px;
-  right: -24px;
-  width: 120px;
-  height: 120px;
-  border: 1px solid rgba(201,168,110,0.4);
-  background: var(--ivory);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-
-.about-accent-box .number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-}
-
-.about-accent-box .label {
-  font-size: 8px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-align: center;
-}
-
-.about-corner {
-  position: absolute;
-  top: -16px;
-  left: -16px;
-  width: 60px;
-  height: 60px;
-  border-top: 2px solid var(--gold);
-  border-left: 2px solid var(--gold);
-}
-
-.about-text { padding-right: 20px; }
-.about-text .section-title { margin-bottom: 28px; }
-
-.about-text p {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.9;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-
-.about-text p strong { color: var(--charcoal); font-weight: 400; }
-
-.about-founders {
-  display: flex;
-  gap: 24px;
-  margin-top: 36px;
-  padding-top: 36px;
-  border-top: 1px solid rgba(201,168,110,0.2);
-}
-
-.founder {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.founder-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--blush), var(--rose));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-style: italic;
-  color: white;
-  flex-shrink: 0;
-}
-
-.founder-info .name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-style: italic;
-  color: var(--charcoal);
-}
-
-.founder-info .title {
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 2px;
-}
-
-.founder-sep {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, var(--blush), transparent);
-  align-self: center;
-}
-
-/* ===================== SERVICES ===================== */
-.services {
-  padding: 120px 0;
-  background: var(--charcoal);
-  position: relative;
-  overflow: hidden;
-}
-
-.services::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 0% 50%, rgba(201,168,110,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 100% 50%, rgba(201,136,122,0.06) 0%, transparent 60%);
-}
-
-.services-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 48px;
-  position: relative;
-}
-
-.services-header {
-  text-align: center;
-  margin-bottom: 72px;
-}
-
-.services-header .section-title { color: var(--ivory); }
-.services-header .section-title em { color: var(--blush); }
-
-.services-header p {
-  margin-top: 20px;
-  font-size: 14px;
-  font-weight: 200;
-  letter-spacing: 1px;
-  color: var(--muted-light);
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.8;
-}
-
-.packages-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-
-.package-card {
-  background: rgba(250,246,241,0.03);
-  border: 1px solid rgba(201,168,110,0.1);
-  padding: 48px 36px;
-  position: relative;
-  transition: all 0.4s ease;
-  overflow: hidden;
-}
-
-.package-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.package-card:hover { background: rgba(250,246,241,0.06); transform: translateY(-4px); }
-.package-card:hover::before { opacity: 1; }
-
-.package-card.featured {
-  background: rgba(201,168,110,0.08);
-  border-color: rgba(201,168,110,0.3);
-}
-
-.package-card.featured::before { opacity: 1; }
-
-.featured-badge {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 8px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(201,168,110,0.4);
-  padding: 4px 10px;
-}
-
-.package-icon { font-size: 32px; margin-bottom: 20px; }
-
-.package-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--ivory);
-  margin-bottom: 8px;
-}
-
-.package-tagline {
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
-}
-
-.package-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  font-weight: 300;
-  color: var(--ivory);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-/* Premium currency glyph balancing */
-.package-price .currency-sign {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 36px;
-  color: var(--ivory);
-  margin-right: -2px;
-  display: inline-block;
-  transform: translateY(-2px);
-}
-
-.package-price span {
-  font-size: 16px;
-  color: var(--muted-light);
-  font-family: 'Jost', sans-serif;
-  font-weight: 200;
-}
-
-.package-price-note {
-  font-size: 10px;
-  color: var(--muted-light);
-  letter-spacing: 1px;
-  margin-bottom: 28px;
-}
-
-.package-divider {
-  height: 1px;
-  background: linear-gradient(90deg, rgba(201,168,110,0.3), transparent);
-  margin-bottom: 28px;
-}
-
-.package-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 36px;
-}
-
-.package-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--muted-light);
-  line-height: 1.5;
-}
-
-.package-features li::before {
-  content: '✦';
-  color: var(--gold);
-  font-size: 8px;
-  margin-top: 4px;
-  flex-shrink: 0;
-}
-
-.package-btn {
-  display: block;
-  text-align: center;
-  padding: 14px 24px;
-  border: 1px solid rgba(201,168,110,0.4);
-  color: var(--gold);
-  text-decoration: none;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-.package-btn:hover, .package-card.featured .package-btn {
-  background: var(--gold);
-  color: var(--charcoal);
-  border-color: var(--gold);
-}
-
-.services-note {
-  text-align: center;
-  margin-top: 48px;
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--muted-light);
-  letter-spacing: 1px;
-}
-
-.services-note a {
-  color: var(--gold);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(201,168,110,0.4);
-  padding-bottom: 1px;
-}
-
-/* ===================== GALLERY ===================== */
-.gallery-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 48px;
-}
-.gallery-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-}
-.gallery-item {
-    position: relative;
-    aspect-ratio: 4/5;
-    overflow: hidden;
-    border: 1px solid rgba(201,168,110,0.2);
-    background: var(--ivory);
-}
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.gallery-item:hover img {
-    transform: scale(1.04);
-}
-.gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(42,36,32,0.85) 0%, rgba(42,36,32,0.2) 60%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-.gallery-overlay h3 {
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--ivory);
-    font-size: 22px;
-    font-weight: 300;
-    margin-bottom: 4px;
-}
-.gallery-overlay p {
-    color: var(--gold-light);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-/* ===================== INTAKE FORM ===================== */
-.intake {
-    padding: 120px 0;
-    background: var(--ivory);
-}
-.intake-inner {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-.intake-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-.intake-form {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-@media (max-width: 600px) {
-    .form-row { grid-template-columns: 1fr; }
-}
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.form-group label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-}
-.form-group input, .form-group select, .form-group textarea {
-    padding: 16px;
-    background: var(--ivory-dark);
-    border: 1px solid rgba(201,168,110,0.2);
-    color: var(--charcoal);
-    font-family: 'Jost', sans-serif;
-    font-size: 14px;
-    transition: border-color 0.3s;
-}
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--gold);
-}
-.submit-btn {
-    padding: 20px;
-    background: var(--charcoal);
-    color: var(--ivory);
-    border: none;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 10px;
-}
-.submit-btn:hover {
-    background: var(--gold);
-    color: var(--charcoal);
-}
-
-/* ===================== FOOTER ===================== */
-footer {
-    background: var(--charcoal);
-    padding: 60px 24px;
-    text-align: center;
-    border-top: 1px solid rgba(201,168,110,0.1);
-}
-.footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    color: var(--gold);
-    margin-bottom: 12px;
-}
-.footer-text {
-    font-size: 12px;
-    color: var(--muted-light);
-    letter-spacing: 1px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moments 2 Memories | Luxury Romantic Architecture</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #1C1613;
+            --cream-light: #F9F6F0;
+            --gold-accent: #D4AF37;
+            --gold-muted: #AA8C2C;
+            --text-dark: #2C2520;
+            --text-light: #EAE3D9;
+            --panel-bg: #26201D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(28,22,19,0.95), rgba(28,22,19,0));
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212,175,55,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--gold-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-accent);
+            opacity: 1;
+        }
+
+        .cta-btn {
+            border: 1px solid var(--gold-accent);
+            padding: 10px 22px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-accent);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .cta-btn:hover {
+            background: var(--gold-accent);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(212,175,55,0.4);
+        }
+
+        /* Hero / Main Header Canvas */
+        .hero-canvas {
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1C1613 0%, #2A201A 50%, #1C1613 100%);
+            padding: 0 20px;
+            position: relative;
+            border-bottom: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .hero-canvas::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 1px;
+            height: 80px;
+            background: var(--gold-accent);
+            opacity: 0.5;
+        }
+
+        .hero-title {
+            font-size: 5.5rem;
+            color: var(--text-light);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--gold-accent);
+            font-weight: 300;
+        }
+
+        /* Identity Section (Cream Block) */
+        .identity-block {
+            background-color: var(--cream-light);
+            color: var(--text-dark);
+            padding: 120px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .identity-visual {
+            position: relative;
+            border: 1px solid rgba(44,37,32,0.1);
+            padding: 20px;
+            background: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .identity-visual img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+        }
+
+        .identity-text h2 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .identity-text p {
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        .profile-badges {
+            display: flex;
+            gap: 40px;
+            border-top: 1px solid rgba(44,37,32,0.1);
+            padding-top: 30px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .badge-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #EADFC9;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            border: 1px solid var(--gold-accent);
+        }
+
+        .badge-info h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .badge-info span {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* The Pricing Tiers */
+        .tier-section {
+            padding: 120px 10%;
+            background: var(--bg-dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 3.8rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--gold-accent);
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .tier-card {
+            background: var(--panel-bg);
+            border: 1px solid rgba(212,175,55,0.1);
+            padding: 60px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .tier-card:hover {
+            border-color: var(--gold-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .tier-meta h3 {
+            font-size: 2.2rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .tier-tagline {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-accent);
+            margin-bottom: 30px;
+        }
+
+        .tier-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .tier-price span {
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            opacity: 0.5;
+            margin-left: 10px;
+        }
+
+        .tier-hold-text {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tier-features {
+            list-style: none;
+            border-top: 1px solid rgba(212,175,55,0.1);
+            padding-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tier-features li {
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            position: relative;
+            padding-left: 25px;
+            font-weight: 300;
+        }
+
+        .tier-features li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gold-accent);
+        }
+
+        /* Curated Canvas (Lookbook Grid) */
+        .lookbook-section {
+            padding: 120px 5%;
+            background: #171210;
+            border-top: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .lookbook-item {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border: 1px solid rgba(212,175,55,0.1);
+            background: var(--panel-bg);
+        }
+
+        .lookbook-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: grayscale(15%) contrast(105%);
+        }
+
+        .lookbook-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .lookbook-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(23,18,16,0.9), rgba(23,18,16,0));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .lookbook-overlay h4 {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .lookbook-overlay span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-accent);
+        }
+
+        /* Intake Structural Container */
+        .intake-section {
+            padding: 120px 10%;
+            background: var(--bg-dark);
+            display: flex;
+            justify-content: center;
+        }
+
+        .intake-container {
+            width: 100%;
+            max-width: 750px;
+            background: var(--panel-bg);
+            border: 1px solid rgba(212,175,55,0.15);
+            padding: 60px 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-accent);
+            margin-bottom: 10px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background: rgba(28,22,19,0.6);
+            border: 1px solid rgba(212,175,55,0.2);
+            padding: 15px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            background: rgba(28,22,19,0.9);
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            background: transparent;
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
+            padding: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold-accent);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(212,175,55,0.3);
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.4;
+            border-top: 1px solid rgba(212,175,55,0.05);
+            background: var(--bg-dark);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Layout Adaptations */
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            .nav-links { display: none; }
+            .hero-title { font-size: 3.2rem; }
+            .identity-block { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
+            .tier-grid { grid-template-columns: 1fr; }
+            .lookbook-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .submit-btn { grid-column: span 1; }
+            .intake-container { padding: 40px 20px; }
+        }
+    </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="nav-logo">Moments 2 Memories</a>
+        <a href="#" class="nav-logo">M2M<span>.</span></a>
         <ul class="nav-links">
-            <li><a href="#about">The Identity</a></li>
-            <li><a href="#services">The Tiers</a></li>
-            <li><a href="#gallery">The Curated Canvas</a></li>
+            <li><a href="#identity">The Identity</a></li>
+            <li><a href="#tiers">The Tiers</a></li>
+            <li><a href="#canvas">The Curated Canvas</a></li>
         </ul>
-        <a href="#book" class="nav-cta">Initiate Intake</a>
+        <a href="#intake" class="cta-btn">Initiate Intake</a>
     </nav>
 
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="glow-1"></div><div class="glow-2"></div><div class="glow-3"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="hero-content">
-            <div class="hero-eyebrow">Luxury Romantic Architecture ✦ Sedona</div>
-            <h1 class="hero-title">We engineer moments.<br>You capture the <em>memory</em>.</h1>
-            <div class="hero-divider">
-                <div class="hero-divider-line"></div>
-                <span>✦</span>
-                <div class="hero-divider-line r"></div>
-            </div>
-            <p class="hero-subtitle">Bespoke luxury ambiances, candlelight curations, and high-end aesthetic designs tailored meticulously inside Sedona's premium resort spaces.</p>
-            <div class="hero-actions" style="margin-top: 40px;">
-                <a href="#services" class="btn-primary">Secure Curation Lock</a>
-                <a href="#gallery" class="btn-secondary">View Showcase</a>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
+    <header class="hero-canvas">
+        <h1 class="hero-title">Moments 2 Memories</h1>
+        <p class="hero-subtitle">Luxury Romantic Architecture</p>
+    </header>
 
-    <section id="about" class="about">
-        <div class="about-inner">
-            <div class="about-visual">
-                <div class="about-corner"></div>
-                <div class="about-img-frame">
-                    <img src="images/logo.jpeg" alt="M2M Brand Icon" style="width:100%; height:100%; object-fit:contain; padding:40px;">
-                </div>
-                <div class="about-accent-box">
-                    <div class="number">01</div>
-                    <div class="label">Regional<br>Prestige</div>
-                </div>
-            </div>
-            <div class="about-text">
-                <div class="section-eyebrow">The Collective Identity</div>
-                <h2 class="section-title">Bespoke luxury built on <em>asynchronous validation</em>.</h2>
-                <p>Moments 2 Memories transforms luxury romantic architecture across Sedona and the Verde Valley. We eliminate generic catalog setups, intentionally curating custom environments unique to each pair.</p>
-                <p>Our design desks function strictly via a pre-authorized queue gate, assuring every placement matches premium local hospitality parameters seamlessly.</p>
-                <div class="about-founders">
-                    <div class="founder">
-                        <div class="founder-avatar">B</div>
-                        <div class="founder-info"><div class="name">Bre</div><div class="title">Design Principal</div></div>
+    <section id="identity" class="identity-block">
+        <div class="identity-visual">
+            <img src="images/logo.jpeg" alt="Moments 2 Memories Logo Framework">
+        </div>
+        <div class="identity-text">
+            <h2>Intentional luxury built around your love story.</h2>
+            <p>Moments 2 Memories transforms standard rooms, landscapes, and luxury spaces across Sedona, Phoenix, and the Verde Valley into striking romantic atmospheres. We handle every design element from custom candlelight layouts to bespoke structure staging, giving you an exquisite space built completely for your milestone.</p>
+            
+            <div class="profile-badges">
+                <div class="badge">
+                    <div class="badge-circle">B</div>
+                    <div class="badge-info">
+                        <h4>Bre</h4>
+                        <span>Design Principal</span>
                     </div>
-                    <div class="founder-sep"></div>
-                    <div class="founder">
-                        <div class="founder-avatar">A</div>
-                        <div class="founder-info"><div class="name">Amber</div><div class="title">Operations Lead</div></div>
+                </div>
+                <div class="badge">
+                    <div class="badge-circle">A</div>
+                    <div class="badge-info">
+                        <h4>Amber</h4>
+                        <span>Operations Lead</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="services-inner">
-            <div class="services-header">
-                <div class="section-eyebrow">Secure Time & Space Parameters</div>
-                <h2 class="section-title">The Curated <em>Retainer Tiers</em></h2>
-                <p>Select your operational scope. Retainer blocks lock down calendar access instantly while our design office clears site-line authorizations.</p>
-            </div>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <div class="package-icon">✦</div>
-                    <h3 class="package-name">Signature Arrival</h3>
-                    <div class="package-tagline">Intentional Standard Elegance</div>
-                    <div class="package-price"><span class="currency-sign">$</span>99<span>.50</span></div>
-                    <div class="package-price-note">Non-Refundable Secure Hold Fee</div>
-                    <div class="package-divider"></div>
-                    <ul class="package-features">
-                        <li>Bespoke candlelight alignment mapping</li>
-                        <li>Deluxe presentation structures</li>
-                        <li>Resort space integration logistics</li>
+    <section id="tiers" class="tier-section">
+        <div class="section-header">
+            <h2>The Experience Tiers</h2>
+            <p>Select Your Foundational Experience</p>
+        </div>
+        
+        <div class="tier-grid">
+            <div class="tier-card">
+                <div class="tier-meta">
+                    <h3>Signature Arrival</h3>
+                    <p class="tier-tagline">Intentional Standard Elegance</p>
+                    <div class="tier-price">$100</div>
+                    <p class="tier-hold-text">Non-Refundable Secure Hold Fee</p>
+                    
+                    <ul class="tier-features">
+                        <li>Bespoke Candlelit Walkways & Accent Lighting</li>
+                        <li>Curated Silk Rose Petal Geometry Staging</li>
+                        <li>Chilled Premium Champagne or Sparking Beverage Integration</li>
+                        <li>Luxury Keepsake Framework & Custom Name Signage</li>
+                        <li>Full Design Setup, Structural Strike, and Logistics Cleanup</li>
                     </ul>
-                    <a href="YOUR_PAYHIP_PRODUCT_1_LINK" class="package-btn" target="_blank">Lock Retainer</a>
                 </div>
-                <div class="package-card featured">
-                    <div class="featured-badge">Highly Requested</div>
-                    <div class="package-icon">✨</div>
-                    <h3 class="package-name">Milestone Moments</h3>
-                    <div class="package-tagline">Proposals & Anniversaries</div>
-                    <div class="package-price"><span class="currency-sign">$</span>249<span>.50</span></div>
-                    <div class="package-price-note">Non-Refundable Secure Hold Fee</div>
-                    <div class="package-divider"></div>
-                    <ul class="package-features">
-                        <li>Custom premium flower-wall or arch design</li>
-                        <li>High-end illuminated marquee structures</li>
-                        <li>Comprehensive coordination blueprint mapping</li>
+                <a href="#intake" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
+            </div>
+
+            <div class="tier-card">
+                <div class="tier-meta">
+                    <h3>Milestone Moments</h3>
+                    <p class="tier-tagline">Proposals & Anniversaries</p>
+                    <div class="tier-price">$250</div>
+                    <p class="tier-hold-text">Non-Refundable Secure Hold Fee</p>
+                    
+                    <ul class="tier-features">
+                        <li>Everything Included in the Signature Arrival Package</li>
+                        <li>Stunning Structural Backdrop (Crescent Hoop, Arch, or Custom Canopy)</li>
+                        <li>Premium High-Density Statement Silk Floral Displays</li>
+                        <li>Extravagant Multi-Tier Floating and Pillar Candle Structures</li>
+                        <li>Enhanced Multi-Room Floor Coverage and Luxury Focal Point Staging</li>
                     </ul>
-                    <a href="YOUR_PAYHIP_PRODUCT_2_LINK" class="package-btn" target="_blank">Lock Retainer</a>
                 </div>
-                <div class="package-card">
-                    <div class="package-icon">👑</div>
-                    <h3 class="package-name">Vanguard Bespoke</h3>
-                    <div class="package-tagline">Elite Custom Production</div>
-                    <div class="package-price"><span>Custom</span></div>
-                    <div class="package-price-note">Inquire via Design Office Desk</div>
-                    <div class="package-divider"></div>
-                    <ul class="package-features">
-                        <li>Multi-location set transitions</li>
-                        <li>Exclusive private landing domain locks</li>
-                        <li>Full luxury custom structural fabrications</li>
-                    </ul>
-                    <a href="#book" class="package-btn">Inquire Directly</a>
+                <a href="#intake" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="canvas" class="lookbook-section">
+        <div class="section-header">
+            <h2>The Curated Canvas</h2>
+            <p>Moments 2 Memories Lookbook Portfolio</p>
+        </div>
+        
+        <div class="lookbook-grid">
+            <div class="lookbook-item">
+                <img src="images/proposal1.jpg" alt="Luxury Sedona Proposal Backdrop">
+                <div class="lookbook-overlay">
+                    <span>Proposals</span>
+                    <h4>Sedona Red Rocks</h4>
+                </div>
+            </div>
+            
+            <div class="lookbook-item">
+                <img src="images/anniversary1.jpg" alt="Bespoke Luxury Room Styling">
+                <div class="lookbook-overlay">
+                    <span>Anniversaries</span>
+                    <h4>Resort Suite Canvas</h4>
+                </div>
+            </div>
+            
+            <div class="lookbook-item">
+                <img src="images/anniversary2.jpg" alt="Premium Balloon and Candle Staging">
+                <div class="lookbook-overlay">
+                    <span>Milestones</span>
+                    <h4>Bespoke Crimson & Gold</h4>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
-        <div class="gallery-inner">
-            <div class="gallery-header">
-                <div class="section-eyebrow">The Lookbook Matrix</div>
-                <h2 class="section-title">Visualized <em>Aesthetics</em></h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/proposal1.jpg" alt="Sedona Proposal Curation">
-                    <div class="gallery-overlay">
-                        <h3>Red Rock Proposal</h3>
-                        <p>Marquee Arch Layout</p>
-                    </div>
+    <section id="intake" class="intake-section">
+        <div class="intake-container">
+            <h3 class="serif-font" style="font-size: 2.8rem; text-align: center; margin-bottom: 10px; color: var(--gold-accent);">Initiate Intake</h3>
+            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; text-align: center; opacity: 0.7;">Secure Your Structural Date Placement</p>
+            
+            <form action="https://formspree.io/f/xvonzgzo" method="POST" class="form-grid">
+                <div class="form-group">
+                    <label for="client-name">Full Name</label>
+                    <input type="text" id="client-name" name="name" required placeholder="Your full name">
                 </div>
-                <div class="gallery-item">
-                    <img src="images/anniversary1.jpg" alt="Luxury Anniversary Suite Room">
-                    <div class="gallery-overlay">
-                        <h3>Resort Suite Renewal</h3>
-                        <p>Candlelight Pathway Setup</p>
-                    </div>
+                <div class="form-group">
+                    <label for="client-email">Email Address</label>
+                    <input type="email" id="client-email" name="email" required placeholder="your.email@domain.com">
                 </div>
-                <div class="gallery-item">
-                    <img src="images/anniversary2.jpg" alt="Deluxe Room Setup Close-up">
-                    <div class="gallery-overlay">
-                        <h3>Bespoke Intimacy</h3>
-                        <p>Floral Canopy Ambiance</p>
-                    </div>
+                <div class="form-group">
+                    <label for="client-phone">Phone Number</label>
+                    <input type="tel" id="client-phone" name="phone" required placeholder="(555) 000-0000">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="book" class="intake">
-        <div class="intake-inner">
-            <div class="intake-header">
-                <div class="section-eyebrow">Calendar Registration Gate</div>
-                <h2 class="section-title">Initiate <em>Validation</em></h2>
-            </div>
-            <form class="intake-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-row">
-                    <div class="form-group"><label>Client Name</label><input type="text" name="name" required></div>
-                    <div class="form-group"><label>Contact Coordinates (Email)</label><input type="email" name="email" required></div>
+                <div class="form-group">
+                    <label for="event-date">Requested Date</label>
+                    <input type="date" id="event-date" name="date" required>
                 </div>
-                <div class="form-row">
-                    <div class="form-group"><label>Target Event Date</label><input type="date" name="event_date" required></div>
-                    <div class="form-group">
-                        <label>Target Execution Tier</label>
-                        <select name="tier" required>
-                            <option value="Signature Arrival ($99.50)">Signature Arrival — $99.50</option>
-                            <option value="Milestone Moments ($249.50)">Milestone Moments — $249.50</option>
-                            <option value="Vanguard Bespoke (Custom)">Vanguard Bespoke — Custom Scope</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="event-location">Event Region / Venue</label>
+                    <select id="event-location" name="location" required>
+                        <option value="" disabled selected>Select location region</option>
+                        <option value="Sedona">Sedona Region</option>
+                        <option value="Phoenix">Phoenix Metro Area</option>
+                        <option value="Verde-Valley">Verde Valley / Clarkdale Area</option>
+                    </select>
                 </div>
-                <div class="form-group"><label>Resort Profile & Special Parameters</label><textarea name="notes" rows="5" placeholder="Specify resort suite location, design aesthetic preferences, ceiling heights, or timing parameters..."></textarea></div>
-                <button type="submit" class="submit-btn">Transmit Intake Profile</button>
+                <div class="form-group">
+                    <label for="experience-tier">Experience Selection</label>
+                    <select id="experience-tier" name="tier" required>
+                        <option value="" disabled selected>Choose your design tier</option>
+                        <option value="signature">Signature Arrival — $100 Hold Fee</option>
+                        <option value="milestone">Milestone Moments — $250 Hold Fee</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="design-vision">Aesthetic Intent & Notes</label>
+                    <textarea id="design-vision" name="vision" rows="4" placeholder="Tell Bre and Amber about your dream vision, color preferences, hotel room details, or surprise timeline notes..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Authorize Design Intake</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <div class="footer-logo">Moments 2 Memories</div>
-        <div class="footer-text">© 2026 M2M_AZ Collective. All rights reserved. Design parameters engineered asynchronously.</div>
+        &copy; 2026 Moments 2 Memories. All Rights Reserved. Built with Intentional Elegance.
     </footer>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
