@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght=200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -18,12 +18,17 @@
             --text-dark: #2C2520;
             --text-light: #EAE3D9;
             --panel-bg: #26201D;
+            --input-bg: #221A17;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -34,7 +39,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, .serif-font {
+        h1, h2, h3, h4, .serif-font {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
         }
@@ -96,6 +101,7 @@
             text-decoration: none;
             transition: all 0.4s ease;
             background: transparent;
+            cursor: pointer;
         }
 
         .cta-btn:hover {
@@ -229,7 +235,7 @@
 
         /* The Pricing Tiers */
         .tier-section {
-            padding: 120px 10%;
+            padding: 120px 10% 60px 10%;
             background: var(--bg-dark);
         }
 
@@ -347,6 +353,72 @@
             font-weight: 300;
         }
 
+        /* Experience Architecture Intake Form */
+        .intake-section {
+            padding: 60px 10% 120px 10%;
+            background: var(--bg-dark);
+        }
+
+        .intake-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: var(--panel-bg);
+            border: 1px solid rgba(212,175,55,0.15);
+            padding: 60px;
+            position: relative;
+        }
+
+        .intake-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold-accent);
+            font-weight: 400;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            background: var(--input-bg);
+            border: 1px solid rgba(212,175,55,0.15);
+            padding: 14px 18px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 10px rgba(212,175,55,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
         /* Curated Canvas (Lookbook Grid) */
         .lookbook-section {
             padding: 120px 5%;
@@ -428,6 +500,8 @@
             .hero-title { font-size: 3.2rem; }
             .identity-block { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
             .tier-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; gap: 25px; }
+            .intake-container { padding: 30px 20px; }
             .lookbook-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -439,9 +513,10 @@
         <ul class="nav-links">
             <li><a href="#identity">The Identity</a></li>
             <li><a href="#tiers">The Tiers</a></li>
+            <li><a href="#intake">Design Studio</a></li>
             <li><a href="#canvas">The Curated Canvas</a></li>
         </ul>
-        <a href="#tiers" class="cta-btn">Book An Experience</a>
+        <a href="#intake" class="cta-btn">Book An Experience</a>
     </nav>
 
     <header class="hero-canvas">
@@ -500,7 +575,7 @@
                         *Upon confirmation, you will receive our exclusive à-la-carte menu for additional add-on options to complete our design intake questionnaire so we can tailor the custom aesthetic precisely to your vision.
                     </p>
                 </div>
-                <a href="https://payhip.com/b/hiOmp" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
+                <a href="#intake" onclick="selectTier('Signature Arrival')" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
             </div>
 
             <div class="tier-card">
@@ -521,12 +596,62 @@
                         *Upon confirmation, you will receive our exclusive à-la-carte menu for additional add-on options to complete our design intake questionnaire so we can tailor the custom aesthetic precisely to your vision.
                     </p>
                 </div>
-                <a href="https://payhip.com/b/tx6ys" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
+                <a href="#intake" onclick="selectTier('Milestone Moments')" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
             </div>
         </div>
     </section>
 
-   <section id="canvas" class="lookbook-section">
+    <!-- Design Intake Architecture Studio Canvas -->
+    <section id="intake" class="intake-section">
+        <div class="section-header">
+            <h2>Design Studio Intake</h2>
+            <p>Initiate Your Architectural Space Rendering</p>
+        </div>
+
+        <div class="intake-container">
+            <form id="architect-form" class="intake-form" action="https://usebasin.com/f/YOUR_BASIN_ID_HERE" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-name">Full Name</label>
+                        <input type="text" id="client-name" name="name" required placeholder="Eleni Thompson">
+                    </div>
+                    <div class="form-group">
+                        <label for="client-email">Email Address</label>
+                        <input type="email" id="client-email" name="email" required placeholder="eleni@example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="experience-tier">Selected Foundational Experience</label>
+                        <select id="experience-tier" name="selected_tier" required>
+                            <option value="" disabled selected>Choose your experience framework...</option>
+                            <option value="Signature Arrival">Signature Arrival — $150</option>
+                            <option value="Milestone Moments">Milestone Moments — $250</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="target-date">Requested Event Date</label>
+                        <input type="date" id="target-date" name="event_date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="venue-details">Staging Venue Location or Type</label>
+                    <input type="text" id="venue-details" name="venue" required placeholder="e.g., Amara Resort Sedona, Private Sedona AirBnB, Outlook Landscape">
+                </div>
+
+                <div class="form-group">
+                    <label for="vision-canvas">Bespoke Structural Request & Vision</label>
+                    <textarea id="vision-canvas" name="vision_notes" placeholder="Detail your exact vision, color profiles, specific text requests for illumination, or customized landscape challenges..."></textarea>
+                </div>
+
+                <button type="submit" class="cta-btn" style="padding: 16px 0; font-size: 0.8rem;">Submit Vision for Architectural Blueprinting</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="canvas" class="lookbook-section">
         <div class="section-header">
             <h2>The Curated Canvas</h2>
             <p>Moments 2 Memories Lookbook Portfolio</p>
@@ -560,5 +685,14 @@
         &copy; 2026 Moments 2 Memories. All Rights Reserved. Built with Intentional Elegance.
     </footer>
 
+    <script>
+        // Automatic Tier Selection Mapping Functionality
+        function selectTier(tierName) {
+            const tierSelect = document.getElementById('experience-tier');
+            if (tierSelect) {
+                tierSelect.value = tierName;
+            }
+        }
+    </script>
 </body>
 </html>
