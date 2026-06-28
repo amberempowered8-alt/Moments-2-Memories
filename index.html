@@ -751,7 +751,7 @@
                         </label>
                         <label class="alacarte-item">
                             <input type="checkbox" name="upgrade_glass_etching" value="Yes">
-                            <span>Custom Hand-Etched Keepsake Glass (+$25)</span>
+                            <span>Custom Hand-Etched Keepsake Glass (+$35)</span>
                         </label>
                         <label class="alacarte-item">
                             <input type="checkbox" name="upgrade_charcuterie" value="Yes">
@@ -769,6 +769,42 @@
                 <div class="form-group">
                     <label for="vision-canvas">Bespoke Structural Request & Vision</label>
                     <textarea id="vision-canvas" name="vision_notes" placeholder="Detail your exact vision, color profiles, specific text requests for illumination, or customized landscape challenges..."></textarea>
+                </div>
+
+                <!-- SCROLLABLE CLIENT AGREEMENT FRAMING -->
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>Luxury Experience Agreement & Terms</label>
+                    <div style="background: var(--input-bg); border: 1px solid rgba(212,175,55,0.15); padding: 20px; height: 180px; overflow-y: scroll; font-size: 0.75rem; color: rgba(234,227,217,0.8); font-weight: 300; line-height: 1.5; margin-bottom: 15px;">
+                        <p style="color: var(--gold-accent); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Moments 2 Memories — Luxury Experience Agreement</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>1. DESIGN LOCK & BOOKING POLICIES</strong><br>
+                        <strong>Section 1.1: The 72-Hour Design Lock.</strong> To ensure we can source and prepare your custom decor, all design choices, color schemes, custom signs, and venue access details must be finalized and signed off within 72 hours of your initial booking. If these details are not finalized within this window, your date may be released back into our booking calendar to accommodate other clients.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>Section 1.2: Venue & Lodging Coordination.</strong> Moments 2 Memories provides styling and decoration services only. The client is completely responsible for booking the primary space (such as a hotel room, private rental, or permitted outdoor location). Our team cannot begin preparing or loading inventory until you provide verified proof of your room reservation, check-in times, and explicit permission from the property for our team to enter and decorate.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>2. PAYMENT POLICIES & DECOR MANAGEMENT</strong><br>
+                        <strong>Section 2.1: Pre-Authorization & Hold Deposit.</strong> To officially submit your date request, a valid payment method must be provided. The foundational experience fee acts as a pre-authorization hold to protect your calendar slot. <strong>No funds will be withdrawn or charged until our design team has personally reviewed your submission, verified availability, and formally confirmed your date and event details.</strong></p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>Section 2.2: Late Surcharges & Last-Minute Requests.</strong> Any adjustments or additions requested within 72 hours of the event are subject to a $75 rush fee to cover last-minute supply runs, priority shipping, and emergency team scheduling.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>3. ACCESSIBILITY, LIABILITY, & COMMUNICATION BOUNDARY</strong><br>
+                        <strong>Section 3.1: Professional Communication Standards.</strong> Moments 2 Memories operates as a premium design office. To ensure every detail of your setup is perfectly tracked and executed without mistakes, we rely on structured written blueprints and scheduled consultation calls. We kindly request that clients use our formal messaging channels rather than continuous, unscheduled text messages or phone calls.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>Section 3.2: Property Access & Liability Disclaimer.</strong> The client guarantees our production crew legal, uninterrupted access to the event space during our scheduled setup and teardown times. Moments 2 Memories is not responsible for any venue-imposed fines, security ejections, or cleaning fees resulting from a property’s hidden rules regarding candles, florals, or outside vendors.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>4. FINAL AUTHORIZATION & NEXT STEPS</strong><br>
+                        By submitting this design intake form and checking the authorization box, you validate that you have thoroughly reviewed, understood, and consented to our design deadlines, property rules, and booking terms detailed within this agreement.</p>
+                        
+                        <p style="font-style: italic; border-top: 1px dashed rgba(212,175,55,0.2); padding-top: 10px;"><strong>Please Note:</strong> This submission places a temporary hold on your date. If your details cannot be verified, or if final confirmation steps are not completed within 48 hours of this submission, this preliminary agreement automatically expires, the payment pre-authorization hold will be released, and your calendar slot will be opened to the next client.</p>
+                    </div>
+                </div>
+
+                <!-- REQUIRED AGREEMENT CHECKBOX -->
+                <div style="margin-bottom: 15px;">
+                    <label class="alacarte-item" style="font-size: 0.75rem; letter-spacing: 0.5px; line-height: 1.4;">
+                        <input type="checkbox" name="client_agreement_consent" value="Agreed" required>
+                        <span>I have read, understood, and explicitly agree to the terms of the Moments 2 Memories Luxury Experience Agreement, including the 48-hour authorization hold guidelines.</span>
+                    </label>
                 </div>
 
                 <button type="submit" class="cta-btn" style="padding: 16px 0; font-size: 0.8rem;">Submit Vision for Architectural Blueprinting</button>
@@ -792,6 +828,10 @@
     </footer>
 
     <script>
+        document.getElementById('architect-form').addEventListener('submit', function(e) {
+            // Additional custom verification step can be injected here if needed
+        });
+
         function selectTier(tierName) {
             const tierSelect = document.getElementById('experience-tier');
             if (tierSelect) {
