@@ -150,7 +150,7 @@
             font-weight: 300;
         }
 
-        /* Identity Section (Cream Block) */
+        /* 1. About Us Section (Cream Block) */
         .identity-block {
             background-color: var(--cream-light);
             color: var(--text-dark);
@@ -233,10 +233,69 @@
             letter-spacing: 1px;
         }
 
-        /* The Pricing Tiers */
+        /* 2. Photos Section (Lookbook Grid) */
+        .lookbook-section {
+            padding: 120px 5%;
+            background: #171210;
+            border-top: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .lookbook-item {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border: 1px solid rgba(212,175,55,0.1);
+            background: var(--panel-bg);
+        }
+
+        .lookbook-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: grayscale(15%) contrast(105%);
+        }
+
+        .lookbook-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .lookbook-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(23,18,16,0.9), rgba(23,18,16,0));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .lookbook-overlay h4 {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .lookbook-overlay span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-accent);
+        }
+
+        /* 3. Package Deals Section */
         .tier-section {
             padding: 120px 10% 60px 10%;
             background: var(--bg-dark);
+            border-top: 1px solid rgba(212,175,55,0.05);
         }
 
         .section-header {
@@ -305,13 +364,6 @@
             align-items: baseline;
         }
 
-        .tier-price span {
-            font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            opacity: 0.5;
-            margin-left: 10px;
-        }
-
         .tier-hold-text {
             font-size: 0.75rem;
             opacity: 0.5;
@@ -353,7 +405,7 @@
             font-weight: 300;
         }
 
-        /* Experience Architecture Intake Form */
+        /* 4. Experience Intake Form Section */
         .intake-section {
             padding: 60px 10% 120px 10%;
             background: var(--bg-dark);
@@ -419,69 +471,11 @@
             min-height: 110px;
         }
 
-        /* Curated Canvas (Lookbook Grid) */
-        .lookbook-section {
-            padding: 120px 5%;
-            background: #171210;
-            border-top: 1px solid rgba(212,175,55,0.1);
-        }
-
-        .lookbook-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .lookbook-item {
-            position: relative;
-            aspect-ratio: 4/5;
-            overflow: hidden;
-            border: 1px solid rgba(212,175,55,0.1);
-            background: var(--panel-bg);
-        }
-
-        .lookbook-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-            filter: grayscale(15%) contrast(105%);
-        }
-
-        .lookbook-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .lookbook-overlay {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 30px;
-            background: linear-gradient(to top, rgba(23,18,16,0.9), rgba(23,18,16,0));
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-
-        .lookbook-overlay h4 {
-            font-size: 1.6rem;
-            color: var(--text-light);
-            margin-bottom: 5px;
-        }
-
-        .lookbook-overlay span {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold-accent);
-        }
-
-        /* Guest Review Studio Section */
+        /* 5. Guest Review Studio Section */
         .reviews-section {
-            padding: 80px 10%;
+            padding: 120px 10%;
             background: var(--bg-dark);
-            border-top: 1px solid rgba(212,175,55,0.05);
+            border-top: 1px solid rgba(212,175,55,0.1);
         }
 
         .reviews-container {
@@ -528,10 +522,11 @@
     <nav>
         <a href="#" class="nav-logo">M2M<span>.</span></a>
         <ul class="nav-links">
-            <li><a href="#identity">The Identity</a></li>
-            <li><a href="#tiers">The Tiers</a></li>
-            <li><a href="#intake">Design Studio</a></li>
-            <li><a href="#canvas">The Curated Canvas</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#photos">The Photos</a></li>
+            <li><a href="#packages">Package Deals</a></li>
+            <li><a href="#intake">Design Studio Form</a></li>
+            <li><a href="#reviews">Guest Reviews</a></li>
         </ul>
         <a href="#intake" class="cta-btn">Book An Experience</a>
     </nav>
@@ -541,7 +536,8 @@
         <p class="hero-subtitle">Luxury Romantic Architecture</p>
     </header>
 
-    <section id="identity" class="identity-block">
+    <!-- 1. ABOUT US SECTION -->
+    <section id="about-us" class="identity-block">
         <div class="identity-visual">
             <img src="images/logo.jpeg" alt="Moments 2 Memories Logo Framework">
         </div>
@@ -568,7 +564,39 @@
         </div>
     </section>
 
-    <section id="tiers" class="tier-section">
+    <!-- 2. THE PHOTOS SECTION -->
+    <section id="photos" class="lookbook-section">
+        <div class="section-header">
+            <h2>The Curated Canvas</h2>
+            <p>Moments 2 Memories Lookbook Portfolio</p>
+        </div>
+        
+        <div class="lookbook-grid">
+            <div class="lookbook-item">
+                <img src="images/proposal1.jpg" alt="Luxury Sedona Proposal Setup">
+                <div class="lookbook-overlay">
+                    <h4>Proposals</h4>
+                </div>
+            </div>
+            
+            <div class="lookbook-item">
+                <img src="images/anniversary1.jpg" alt="Bespoke Luxury Room Styling">
+                <div class="lookbook-overlay">
+                    <h4>Anniversaries</h4>
+                </div>
+            </div>
+            
+            <div class="lookbook-item">
+                <img src="images/anniversary2.jpg" alt="Premium Balloon and Candle Staging">
+                <div class="lookbook-overlay">
+                    <h4>Milestones</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PACKAGE DEALS SECTION -->
+    <section id="packages" class="tier-section">
         <div class="section-header">
             <h2>The Experience Tiers</h2>
             <p>Select Your Foundational Experience</p>
@@ -592,7 +620,7 @@
                         *Upon confirmation, you will receive our exclusive à-la-carte menu for additional add-on options to complete our design intake questionnaire so we can tailor the custom aesthetic precisely to your vision.
                     </p>
                 </div>
-                <a href="#intake" onclick="selectTier(event, 'Signature Arrival')" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
+                <a href="#intake" onclick="selectTier('Signature Arrival')" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
             </div>
 
             <div class="tier-card">
@@ -613,12 +641,12 @@
                         *Upon confirmation, you will receive our exclusive à-la-carte menu for additional add-on options to complete our design intake questionnaire so we can tailor the custom aesthetic precisely to your vision.
                     </p>
                 </div>
-                <a href="#intake" onclick="selectTier(event, 'Milestone Moments')" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
+                <a href="#intake" onclick="selectTier('Milestone Moments')" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
             </div>
         </div>
     </section>
 
-    <!-- Design Intake Architecture Studio Canvas -->
+    <!-- 4. INTAKE FORM SECTION -->
     <section id="intake" class="intake-section">
         <div class="section-header">
             <h2>Design Studio Intake</h2>
@@ -668,37 +696,7 @@
         </div>
     </section>
 
-    <section id="canvas" class="lookbook-section">
-        <div class="section-header">
-            <h2>The Curated Canvas</h2>
-            <p>Moments 2 Memories Lookbook Portfolio</p>
-        </div>
-        
-        <div class="lookbook-grid">
-            <div class="lookbook-item">
-                <img src="images/proposal1.jpg" alt="Luxury Sedona Proposal Setup">
-                <div class="lookbook-overlay">
-                    <h4>Proposals</h4>
-                </div>
-            </div>
-            
-            <div class="lookbook-item">
-                <img src="images/anniversary1.jpg" alt="Bespoke Luxury Room Styling">
-                <div class="lookbook-overlay">
-                    <h4>Anniversaries</h4>
-                </div>
-            </div>
-            
-            <div class="lookbook-item">
-                <img src="images/anniversary2.jpg" alt="Premium Balloon and Candle Staging">
-                <div class="lookbook-overlay">
-                    <h4>Milestones</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Guest Review Studio Section -->
+    <!-- 5. REVIEW BOX SECTION -->
     <section id="reviews" class="reviews-section">
         <div class="section-header">
             <h2>Guest Review Studio</h2>
@@ -714,8 +712,7 @@
     </footer>
 
     <script>
-        // Automatic Tier Selection Mapping Functionality
-        function selectTier(event, tierName) {
+        function selectTier(tierName) {
             const tierSelect = document.getElementById('experience-tier');
             if (tierSelect) {
                 tierSelect.value = tierName;
