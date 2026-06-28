@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght=200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -592,7 +592,7 @@
                         *Upon confirmation, you will receive our exclusive à-la-carte menu for additional add-on options to complete our design intake questionnaire so we can tailor the custom aesthetic precisely to your vision.
                     </p>
                 </div>
-                <a href="#intake" onclick="selectTier('Signature Arrival')" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
+                <a href="#intake" onclick="selectTier(event, 'Signature Arrival')" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
             </div>
 
             <div class="tier-card">
@@ -613,7 +613,7 @@
                         *Upon confirmation, you will receive our exclusive à-la-carte menu for additional add-on options to complete our design intake questionnaire so we can tailor the custom aesthetic precisely to your vision.
                     </p>
                 </div>
-                <a href="#intake" onclick="selectTier('Milestone Moments')" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
+                <a href="#intake" onclick="selectTier(event, 'Milestone Moments')" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
             </div>
         </div>
     </section>
@@ -705,7 +705,7 @@
             <p>Share Your Experience Framework</p>
         </div>
         <div class="reviews-container">
-            <iframe class="airtable-embed" src="https://airtable.com/embed/appkNxXO35HnkU2YC/pagMyXHYJFsGahdIt/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: none;"></iframe>
+            <iframe class="airtable-embed" src="https://airtable.com/embed/appkNxXO35HnkU2YC/pagMyXHYJFsGahdIt/form" frameborder="0" width="100%" height="533" style="background: transparent; border: none;"></iframe>
         </div>
     </section>
 
@@ -715,7 +715,7 @@
 
     <script>
         // Automatic Tier Selection Mapping Functionality
-        function selectTier(tierName) {
+        function selectTier(event, tierName) {
             const tierSelect = document.getElementById('experience-tier');
             if (tierSelect) {
                 tierSelect.value = tierName;
