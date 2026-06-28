@@ -110,7 +110,7 @@
             box-shadow: 0 0 15px rgba(212,175,55,0.4);
         }
 
-        /* Hero / Main Header Canvas */
+        /* Hero Canvas */
         .hero-canvas {
             height: 85vh;
             display: flex;
@@ -150,7 +150,7 @@
             font-weight: 300;
         }
 
-        /* 1. About Us Section (Cream Block) */
+        /* About Us Section */
         .identity-block {
             background-color: var(--cream-light);
             color: var(--text-dark);
@@ -233,7 +233,7 @@
             letter-spacing: 1px;
         }
 
-        /* 2. Photos Section (Lookbook Grid) */
+        /* Photos Section */
         .lookbook-section {
             padding: 120px 5%;
             background: #171210;
@@ -284,14 +284,7 @@
             margin-bottom: 5px;
         }
 
-        .lookbook-overlay span {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold-accent);
-        }
-
-        /* 3. Package Deals Section */
+        /* Packages Section */
         .tier-section {
             padding: 120px 10% 60px 10%;
             background: var(--bg-dark);
@@ -360,8 +353,6 @@
             font-size: 3.5rem;
             color: var(--text-light);
             margin-bottom: 5px;
-            display: flex;
-            align-items: baseline;
         }
 
         .tier-hold-text {
@@ -405,7 +396,7 @@
             font-weight: 300;
         }
 
-        /* 4. Experience Intake Form Section */
+        /* Intake Form Section */
         .intake-section {
             padding: 60px 10% 120px 10%;
             background: var(--bg-dark);
@@ -471,17 +462,16 @@
             min-height: 110px;
         }
 
-        /* Custom À La Carte Grid & Styling */
-        .alacarte-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+        .conditional-box {
             background: var(--input-bg);
-            border: 1px solid rgba(212,175,55,0.15);
+            border: 1px dashed rgba(212,175,55,0.3);
             padding: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .alacarte-item {
+        .checkbox-label {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -490,14 +480,12 @@
             font-weight: 300;
         }
 
-        .alacarte-item input[type="checkbox"] {
+        .checkbox-label input[type="checkbox"] {
             accent-color: var(--gold-accent);
-            cursor: pointer;
             width: 16px;
             height: 16px;
         }
 
-        /* File Upload Custom Styling Overrides */
         .form-group input[type="file"] {
             padding: 12px;
             cursor: pointer;
@@ -516,12 +504,7 @@
             transition: all 0.3s ease;
         }
 
-        .form-group input[type="file"]::file-selector-button:hover {
-            background: var(--gold-accent);
-            color: var(--bg-dark);
-        }
-
-        /* 5. Guest Review Studio Section */
+        /* Reviews Section */
         .reviews-section {
             padding: 120px 10%;
             background: var(--bg-dark);
@@ -553,7 +536,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Mobile Layout Adaptations */
         @media (max-width: 768px) {
             nav { padding: 20px; }
             .nav-links { display: none; }
@@ -561,9 +543,7 @@
             .identity-block { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
             .tier-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
-            .alacarte-grid { grid-template-columns: 1fr; }
             .intake-container { padding: 30px 20px; }
-            .reviews-container { padding: 20px 15px; }
             .lookbook-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -575,7 +555,7 @@
         <ul class="nav-links">
             <li><a href="#about-us">About Us</a></li>
             <li><a href="#photos">The Photos</a></li>
-            <li><a href="#packages">Package Deals</a></li>
+            <li><a href="#packages">Experiences</a></li>
             <li><a href="#intake">Design Studio Form</a></li>
             <li><a href="#reviews">Guest Reviews</a></li>
         </ul>
@@ -587,10 +567,10 @@
         <p class="hero-subtitle">Luxury Romantic Architecture</p>
     </header>
 
-    <!-- 1. ABOUT US SECTION -->
+    <!-- ABOUT US SECTION -->
     <section id="about-us" class="identity-block">
         <div class="identity-visual">
-            <img src="images/logo.jpeg" alt="Moments 2 Memories Logo Framework">
+            <img src="images/logo.jpeg" alt="Moments 2 Memories Logo">
         </div>
         <div class="identity-text">
             <h2>Intentional luxury built around your love story.</h2>
@@ -615,7 +595,7 @@
         </div>
     </section>
 
-    <!-- 2. THE PHOTOS SECTION -->
+    <!-- PHOTOS SECTION -->
     <section id="photos" class="lookbook-section">
         <div class="section-header">
             <h2>The Curated Canvas</h2>
@@ -624,7 +604,7 @@
         
         <div class="lookbook-grid">
             <div class="lookbook-item">
-                <img src="images/proposal1.jpg" alt="Luxury Sedona Proposal Setup">
+                <img src="images/proposal1.jpg" alt="Luxury Sedona Proposal">
                 <div class="lookbook-overlay">
                     <h4>Proposals</h4>
                 </div>
@@ -638,7 +618,7 @@
             </div>
             
             <div class="lookbook-item">
-                <img src="images/anniversary2.jpg" alt="Premium Balloon and Candle Staging">
+                <img src="images/anniversary2.jpg" alt="Premium Candle Staging">
                 <div class="lookbook-overlay">
                     <h4>Milestones</h4>
                 </div>
@@ -646,7 +626,7 @@
         </div>
     </section>
 
-    <!-- 3. PACKAGE DEALS SECTION -->
+    <!-- PACKAGE DEALS SECTION -->
     <section id="packages" class="tier-section">
         <div class="section-header">
             <h2>The Experience Tiers</h2>
@@ -654,50 +634,58 @@
         </div>
         
         <div class="tier-grid">
+            <!-- PACKAGE 1 -->
             <div class="tier-card">
                 <div class="tier-meta">
-                    <h3>Signature Arrival</h3>
-                    <p class="tier-tagline">Intentional Standard Elegance</p>
-                    <div class="tier-price">$150</div>
-                    <p class="tier-hold-text">Non-Refundable Secure Hold Fee</p>
+                    <h3>The Foundational Romance</h3>
+                    <p class="tier-tagline">Elegant & High-Impact Staging</p>
+                    <div class="tier-price">$350</div>
+                    <p class="tier-hold-text">Authorization Hold Fee Only</p>
                     
                     <ul class="tier-features">
-                        <li>Curated Silk Rose Petal Placement Staging</li>
-                        <li>Balloon Message or Small Light Message</li>
-                        <li>A Dozen Fresh Roses</li>
+                        <li>Illuminated Message Choice (<em>You + Me</em> OR <em>Always & Forever</em>) or Custom Balloon Message</li>
+                        <li>1 Dozen Fresh Roses OR Premium Custom Seasonal Floral Arrangement</li>
+                        <li>Classic Silk Rose Petal Staged Pathway</li>
+                        <li>Ambient Battery-Operated LED Tealight Candle Layout</li>
+                        <li>Floating Ceiling Balloons (Selectable Luxury Color Schemes)</li>
+                        <li>1 Bottle of Fine Champagne + 2 Classic Toasting Glasses</li>
                     </ul>
 
                     <p class="tier-intake-note">
-                        *Tailor your framework directly below using our architectural design intake form.
+                        *Optional custom hand-etched glass upgrade available within the design form below.
                     </p>
                 </div>
-                <a href="#intake" onclick="selectTier('Signature Arrival')" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
+                <a href="#intake" onclick="selectTier('Foundational Romance')" class="cta-btn" style="text-align: center;">Select Foundational Experience</a>
             </div>
 
+            <!-- PACKAGE 2 -->
             <div class="tier-card">
                 <div class="tier-meta">
-                    <h3>Milestone Moments</h3>
-                    <p class="tier-tagline">Proposals & Anniversaries</p>
-                    <div class="tier-price">$250</div>
-                    <p class="tier-hold-text">Non-Refundable Secure Hold Fee</p>
+                    <h3>The Grand Milestone</h3>
+                    <p class="tier-tagline">The Full All-Inclusive Arch Experience</p>
+                    <div class="tier-price">$750</div>
+                    <p class="tier-hold-text">Authorization Hold Fee Only</p>
                     
                     <ul class="tier-features">
-                        <li>Everything Included in the Signature Arrival Package</li>
-                        <li>Candlelit Walkway and Accent Lighting</li>
-                        <li>Hanging Floral Display</li>
-                        <li>Silk Rose Arrangement (Real Roses and Champagne available upon request)</li>
+                        <li>Illuminated Message Choice (<em>You + Me</em> OR <em>Always & Forever</em>) or Custom Balloon Message</li>
+                        <li>Structural Table-Size Presentation Arch (Upgrades to Queen/King Scale Available)</li>
+                        <li>2 Dozen Fresh Roses OR Premium Custom Seasonal Floral Arrangement</li>
+                        <li>Floating Ceiling Balloons + Dreamy Floating Rose Accents</li>
+                        <li>Immersive, Heavy Dual Pathway of Interlaced Candles and Rose Petals</li>
+                        <li>1 Bottle of Fine Champagne + **2 Custom Hand-Etched Keepsake Glasses** (Included)</li>
+                        <li>Premium Artisanal Box of Chocolates & Specially Curated Keepsake Gift</li>
                     </ul>
 
                     <p class="tier-intake-note">
-                        *Tailor your framework directly below using our architectural design intake form.
+                        *Tailor arch structural sizes and color schemes directly in the studio designer below.
                     </p>
                 </div>
-                <a href="#intake" onclick="selectTier('Milestone Moments')" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
+                <a href="#intake" onclick="selectTier('Grand Milestone')" class="cta-btn" style="text-align: center;">Select Grand Milestone Experience</a>
             </div>
         </div>
     </section>
 
-    <!-- 4. INTAKE FORM SECTION -->
+    <!-- INTAKE FORM SECTION -->
     <section id="intake" class="intake-section">
         <div class="section-header">
             <h2>Design Studio Intake</h2>
@@ -720,10 +708,10 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="experience-tier">Selected Foundational Experience</label>
-                        <select id="experience-tier" name="selected_tier" required>
+                        <select id="experience-tier" name="selected_tier" required onchange="handleTierChange(this.value)">
                             <option value="" disabled selected>Choose your experience framework...</option>
-                            <option value="Signature Arrival">Signature Arrival — $150</option>
-                            <option value="Milestone Moments">Milestone Moments — $250</option>
+                            <option value="Foundational Romance">The Foundational Romance — $350</option>
+                            <option value="Grand Milestone">The Grand Milestone — $750</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -732,35 +720,71 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="venue-details">Staging Venue Location or Type</label>
-                    <input type="text" id="venue-details" name="venue" required placeholder="e.g., Amara Resort Sedona, Private Sedona AirBnB, Outlook Landscape">
-                </div>
-
-                <!-- INTEGRATED À LA CARTE UPGRADES SELECTION -->
-                <div class="form-group">
-                    <label>Bespoke À La Carte Upgrades</label>
-                    <div class="alacarte-grid">
-                        <label class="alacarte-item">
-                            <input type="checkbox" name="upgrade_champagne" value="Yes">
-                            <span>Premium Champagne & Toast Glasses (+$45)</span>
-                        </label>
-                        <label class="alacarte-item">
-                            <input type="checkbox" name="upgrade_rose_petals" value="Yes">
-                            <span>Extra Fresh Rose Petal Pathway (+$30)</span>
-                        </label>
-                        <label class="alacarte-item">
-                            <input type="checkbox" name="upgrade_glass_etching" value="Yes">
-                            <span>Custom Hand-Etched Keepsake Glass (+$35)</span>
-                        </label>
-                        <label class="alacarte-item">
-                            <input type="checkbox" name="upgrade_charcuterie" value="Yes">
-                            <span>Gourmet Artisan Charcuterie Board (+$60)</span>
-                        </label>
+                <!-- NEW SELECTIONS: LIGHT MESSAGE AND COLOR SCHEME -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="message-option">Illuminated / Balloon Message Concept</label>
+                        <select id="message-option" name="message_concept" required>
+                            <option value="" disabled selected>Select message display...</option>
+                            <option value="You + Me">Light Display: "You + Me"</option>
+                            <option value="Always & Forever">Light Display: "Always & Forever"</option>
+                            <option value="Custom Balloon Message">Custom Balloon Letter Message</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="color-palette">Curated Color Story Palette</label>
+                        <select id="color-palette" name="color_palette" required>
+                            <option value="" disabled selected>Select color palette theme...</option>
+                            <option value="Classic Romance">Classic Romance (Crimson, Matte White, Polished Gold)</option>
+                            <option value="Sedona Sunset">Sedona Sunset (Blush, Terracotta, Rose Gold/Champagne)</option>
+                            <option value="Modern Luxury">Modern Luxury (Monochrome Black, White, Polished Silver)</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- INTEGRATED FILE UPLOAD FOR DESIGN INSPIRATION -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="floral-option">Floral Structural Preference</label>
+                        <select id="floral-option" name="floral_preference" required>
+                            <option value="" disabled selected>Select floral type...</option>
+                            <option value="Fresh Roses">Classic Premium Fresh Roses</option>
+                            <option value="Seasonal Arrangement">Custom Curated Seasonal Floral Arrangement</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="venue-details">Staging Venue Location or Type</label>
+                        <input type="text" id="venue-details" name="venue" required placeholder="e.g., Amara Resort Sedona, Private AirBnB">
+                    </div>
+                </div>
+
+                <!-- DYNAMIC BOX FOR PACKAGE 1: GLASS ETCHING UPGRADE -->
+                <div id="p1-etching-box" class="conditional-box">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="p1-etching-checkbox" name="p1_etched_upgrade" value="Yes" onchange="toggleP1EtchText(this.checked)">
+                        <span>Upgrade to Custom Hand-Etched Keepsake Glasses (+$15)</span>
+                    </label>
+                    <div id="p1-text-group" class="form-group" style="display: none; margin-top: 10px;">
+                        <label for="p1-etching-text">Custom Engraving Instructions</label>
+                        <input type="text" id="p1-etching-text" name="p1_etching_notes" placeholder="e.g., A & M 10.24.26">
+                    </div>
+                </div>
+
+                <!-- DYNAMIC BOX FOR PACKAGE 2: ARCH SIZE & INCLUDED ETCHING TEXT -->
+                <div id="p2-structural-box" class="conditional-box">
+                    <div class="form-group">
+                        <label for="arch-size">Structural Framework Scale & Size</label>
+                        <select id="arch-size" name="arch_scale">
+                            <option value="Standard Table Arch">Standard Table Arch (Included — Displays over Toast Table)</option>
+                            <option value="Medium Queen Arch">Medium Queen-Size Arch (+$100 — Frames a headboard or statement wall)</option>
+                            <option value="Large King Arch">Large King-Size Arch (+$200 — Extra grand sweeping structural display)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-top: 5px;">
+                        <label for="p2-etching-text">Included Keepsake Glass Engraving Instructions</label>
+                        <input type="text" id="p2-etching-text" name="p2_etching_notes" placeholder="e.g., Forever Yours 2026">
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="inspiration-images">Upload Inspiration Framework (Pinterest / Layouts)</label>
                     <input type="file" id="inspiration-images" name="inspiration_photos" accept="image/*" multiple>
@@ -768,10 +792,10 @@
 
                 <div class="form-group">
                     <label for="vision-canvas">Bespoke Structural Request & Vision</label>
-                    <textarea id="vision-canvas" name="vision_notes" placeholder="Detail your exact vision, color profiles, specific text requests for illumination, or customized landscape challenges..."></textarea>
+                    <textarea id="vision-canvas" name="vision_notes" placeholder="Detail your exact vision, color variations, custom structural requests or specific setup schedules..."></textarea>
                 </div>
 
-                <!-- SCROLLABLE CLIENT AGREEMENT FRAMING -->
+                <!-- SCROLLABLE CLIENT AGREEMENT -->
                 <div class="form-group" style="margin-top: 15px;">
                     <label>Luxury Experience Agreement & Terms</label>
                     <div style="background: var(--input-bg); border: 1px solid rgba(212,175,55,0.15); padding: 20px; height: 180px; overflow-y: scroll; font-size: 0.75rem; color: rgba(234,227,217,0.8); font-weight: 300; line-height: 1.5; margin-bottom: 15px;">
@@ -785,8 +809,6 @@
                         <p style="margin-bottom: 10px;"><strong>2. PAYMENT POLICIES & DECOR MANAGEMENT</strong><br>
                         <strong>Section 2.1: Pre-Authorization & Hold Deposit.</strong> To officially submit your date request, a valid payment method must be provided. The foundational experience fee acts as a pre-authorization hold to protect your calendar slot. <strong>No funds will be withdrawn or charged until our design team has personally reviewed your submission, verified availability, and formally confirmed your date and event details.</strong></p>
                         
-                        <p style="margin-bottom: 10px;"><strong>Section 2.2: Late Surcharges & Last-Minute Requests.</strong> Any adjustments or additions requested within 72 hours of the event are subject to a $75 rush fee to cover last-minute supply runs, priority shipping, and emergency team scheduling.</p>
-                        
                         <p style="margin-bottom: 10px;"><strong>3. ACCESSIBILITY, LIABILITY, & COMMUNICATION BOUNDARY</strong><br>
                         <strong>Section 3.1: Professional Communication Standards.</strong> Moments 2 Memories operates as a premium design office. To ensure every detail of your setup is perfectly tracked and executed without mistakes, we rely on structured written blueprints and scheduled consultation calls. We kindly request that clients use our formal messaging channels rather than continuous, unscheduled text messages or phone calls.</p>
                         
@@ -794,14 +816,12 @@
                         
                         <p style="margin-bottom: 10px;"><strong>4. FINAL AUTHORIZATION & NEXT STEPS</strong><br>
                         By submitting this design intake form and checking the authorization box, you validate that you have thoroughly reviewed, understood, and consented to our design deadlines, property rules, and booking terms detailed within this agreement.</p>
-                        
-                        <p style="font-style: italic; border-top: 1px dashed rgba(212,175,55,0.2); padding-top: 10px;"><strong>Please Note:</strong> This submission places a temporary hold on your date. If your details cannot be verified, or if final confirmation steps are not completed within 48 hours of this submission, this preliminary agreement automatically expires, the payment pre-authorization hold will be released, and your calendar slot will be opened to the next client.</p>
                     </div>
                 </div>
 
                 <!-- REQUIRED AGREEMENT CHECKBOX -->
                 <div style="margin-bottom: 15px;">
-                    <label class="alacarte-item" style="font-size: 0.75rem; letter-spacing: 0.5px; line-height: 1.4;">
+                    <label class="checkbox-label" style="font-size: 0.75rem; letter-spacing: 0.5px; line-height: 1.4;">
                         <input type="checkbox" name="client_agreement_consent" value="Agreed" required>
                         <span>I have read, understood, and explicitly agree to the terms of the Moments 2 Memories Luxury Experience Agreement, including the 48-hour authorization hold guidelines.</span>
                     </label>
@@ -812,7 +832,7 @@
         </div>
     </section>
 
-    <!-- 5. REVIEW BOX SECTION -->
+    <!-- REVIEW BOX SECTION -->
     <section id="reviews" class="reviews-section">
         <div class="section-header">
             <h2>Guest Review Studio</h2>
@@ -828,15 +848,33 @@
     </footer>
 
     <script>
-        document.getElementById('architect-form').addEventListener('submit', function(e) {
-            // Additional custom verification step can be injected here if needed
-        });
-
         function selectTier(tierName) {
             const tierSelect = document.getElementById('experience-tier');
             if (tierSelect) {
                 tierSelect.value = tierName;
+                handleTierChange(tierName);
             }
+        }
+
+        function handleTierChange(val) {
+            const p1Box = document.getElementById('p1-etching-box');
+            const p2Box = document.getElementById('p2-structural-box');
+            
+            if (val === "Foundational Romance") {
+                p1Box.style.display = "flex";
+                p2Box.style.display = "none";
+            } else if (val === "Grand Milestone") {
+                p1Box.style.display = "none";
+                p2Box.style.display = "flex";
+            } else {
+                p1Box.style.display = "none";
+                p2Box.style.display = "none";
+            }
+        }
+
+        function toggleP1EtchText(isChecked) {
+            const textGroup = document.getElementById('p1-text-group');
+            textGroup.style.display = isChecked ? "flex" : "none";
         }
     </script>
 </body>
