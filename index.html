@@ -518,6 +518,15 @@
             border: 1px solid rgba(212,175,55,0.15);
             padding: 40px;
             border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Airtable Embed Container Support */
+        .reviews-embed {
+            width: 100%;
+            background: transparent;
+            border: none;
+            min-height: 450px;
         }
 
         footer {
@@ -720,7 +729,6 @@
                     </div>
                 </div>
 
-                <!-- NEW SELECTIONS: LIGHT MESSAGE AND COLOR SCHEME -->
                 <div class="form-row">
                     <div class="form-group">
                         <label for="message-option">Illuminated / Balloon Message Concept</label>
@@ -813,49 +821,34 @@
                         <strong>Section 3.1: Professional Communication Standards.</strong> Moments 2 Memories operates as a premium design office. To ensure every detail of your setup is perfectly tracked and executed without mistakes, we rely on structured written blueprints and scheduled consultation calls. We kindly request that clients use our formal messaging channels rather than continuous, unscheduled text messages or phone calls.</p>
                         
                         <p style="margin-bottom: 10px;"><strong>Section 3.2: Property Access & Liability Disclaimer.</strong> The client guarantees our production crew legal, uninterrupted access to the event space during our scheduled setup and teardown times. Moments 2 Memories is not responsible for any venue-imposed fines, security ejections, or cleaning fees resulting from a property’s hidden rules regarding candles, florals, or outside vendors.</p>
-                        
-                        <p style="margin-bottom: 10px;"><strong>4. FINAL AUTHORIZATION & NEXT STEPS</strong><br>
-                        By submitting this design intake form and checking the authorization box, you validate that you have thoroughly reviewed, understood, and consented to our design deadlines, property rules, and booking terms detailed within this agreement.</p>
                     </div>
                 </div>
 
-                <!-- REQUIRED AGREEMENT CHECKBOX -->
-                <div style="margin-bottom: 15px;">
-                    <label class="checkbox-label" style="font-size: 0.75rem; letter-spacing: 0.5px; line-height: 1.4;">
-                        <input type="checkbox" name="client_agreement_consent" value="Agreed" required>
-                        <span>I have read, understood, and explicitly agree to the terms of the Moments 2 Memories Luxury Experience Agreement, including the 48-hour authorization hold guidelines.</span>
-                    </label>
-                </div>
-
-                <button type="submit" class="cta-btn" style="padding: 16px 0; font-size: 0.8rem;">Submit Vision for Architectural Blueprinting</button>
+                <button type="submit" class="cta-btn" style="width: 100%; padding: 15px; font-size: 0.85rem;">Submit Design Framework Proposal</button>
             </form>
         </div>
     </section>
 
-    <!-- REVIEW BOX SECTION -->
+    <!-- REVIEWS SECTION -->
     <section id="reviews" class="reviews-section">
         <div class="section-header">
-            <h2>Guest Review Studio</h2>
-            <p>Share Your Experience Framework</p>
+            <h2>Guest Shared Experiences</h2>
+            <p>Reflections From Curated Milestone Spaces</p>
         </div>
         <div class="reviews-container">
-            <iframe class="airtable-embed" src="https://airtable.com/embed/appkNxXO35HnkU2YC/pagMyXHYJFsGahdIt/form" frameborder="0" width="100%" height="533" style="background: transparent; border: none;"></iframe>
+            <!-- Replace the placeholder below with your real Airtable Shared View Iframe embed link -->
+            <div style="padding: 20px; border: 1px dashed rgba(212,175,55,0.3); color: var(--gold-accent); font-size: 0.85rem;">
+                <p>Airtable Live Guest Ledger Connection Area</p>
+                <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 5px; color: var(--text-light);">Drop your Airtable base iframe element code right here to stream live reviews.</p>
+            </div>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Moments 2 Memories. All Rights Reserved. Built with Intentional Elegance.
+        <p>&copy; 2026 Moments 2 Memories. All Rights Reserved. Luxury Event Architecture.</p>
     </footer>
 
     <script>
-        function selectTier(tierName) {
-            const tierSelect = document.getElementById('experience-tier');
-            if (tierSelect) {
-                tierSelect.value = tierName;
-                handleTierChange(tierName);
-            }
-        }
-
         function handleTierChange(val) {
             const p1Box = document.getElementById('p1-etching-box');
             const p2Box = document.getElementById('p2-structural-box');
@@ -872,9 +865,17 @@
             }
         }
 
-        function toggleP1EtchText(isChecked) {
+        function toggleP1EtchText(checked) {
             const textGroup = document.getElementById('p1-text-group');
-            textGroup.style.display = isChecked ? "flex" : "none";
+            textGroup.style.display = checked ? "flex" : "none";
+        }
+
+        function selectTier(tierName) {
+            const selectEl = document.getElementById('experience-tier');
+            if (selectEl) {
+                selectEl.value = tierName;
+                handleTierChange(tierName);
+            }
         }
     </script>
 </body>
