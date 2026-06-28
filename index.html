@@ -471,6 +471,56 @@
             min-height: 110px;
         }
 
+        /* Custom À La Carte Grid & Styling */
+        .alacarte-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            background: var(--input-bg);
+            border: 1px solid rgba(212,175,55,0.15);
+            padding: 20px;
+        }
+
+        .alacarte-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+
+        .alacarte-item input[type="checkbox"] {
+            accent-color: var(--gold-accent);
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* File Upload Custom Styling Overrides */
+        .form-group input[type="file"] {
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        .form-group input[type="file"]::file-selector-button {
+            background: var(--panel-bg);
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
+            padding: 5px 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input[type="file"]::file-selector-button:hover {
+            background: var(--gold-accent);
+            color: var(--bg-dark);
+        }
+
         /* 5. Guest Review Studio Section */
         .reviews-section {
             padding: 120px 10%;
@@ -511,6 +561,7 @@
             .identity-block { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
             .tier-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
+            .alacarte-grid { grid-template-columns: 1fr; }
             .intake-container { padding: 30px 20px; }
             .reviews-container { padding: 20px 15px; }
             .lookbook-grid { grid-template-columns: 1fr; }
@@ -617,7 +668,7 @@
                     </ul>
 
                     <p class="tier-intake-note">
-                        *Upon confirmation, you will receive our exclusive à-la-carte menu for additional add-on options to complete our design intake questionnaire so we can tailor the custom aesthetic precisely to your vision.
+                        *Tailor your framework directly below using our architectural design intake form.
                     </p>
                 </div>
                 <a href="#intake" onclick="selectTier('Signature Arrival')" class="cta-btn" style="text-align: center;">Select Signature Experience</a>
@@ -638,7 +689,7 @@
                     </ul>
 
                     <p class="tier-intake-note">
-                        *Upon confirmation, you will receive our exclusive à-la-carte menu for additional add-on options to complete our design intake questionnaire so we can tailor the custom aesthetic precisely to your vision.
+                        *Tailor your framework directly below using our architectural design intake form.
                     </p>
                 </div>
                 <a href="#intake" onclick="selectTier('Milestone Moments')" class="cta-btn" style="text-align: center;">Select Milestone Experience</a>
@@ -654,7 +705,8 @@
         </div>
 
         <div class="intake-container">
-            <form id="architect-form" class="intake-form" action="https://usebasin.com/f/2d95c93b14d6" method="POST">
+            <!-- Added enctype="multipart/form-data" to support inspiration image uploads via Basin -->
+            <form id="architect-form" class="intake-form" action="https://usebasin.com/f/2d95c93b14d6" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="client-name">Full Name</label>
@@ -684,6 +736,35 @@
                 <div class="form-group">
                     <label for="venue-details">Staging Venue Location or Type</label>
                     <input type="text" id="venue-details" name="venue" required placeholder="e.g., Amara Resort Sedona, Private Sedona AirBnB, Outlook Landscape">
+                </div>
+
+                <!-- INTEGRATED À LA CARTE UPGRADES SELECTION -->
+                <div class="form-group">
+                    <label>Bespoke À La Carte Upgrades</label>
+                    <div class="alacarte-grid">
+                        <label class="alacarte-item">
+                            <input type="checkbox" name="upgrade_champagne" value="Yes">
+                            <span>Premium Champagne & Toast Glasses (+$45)</span>
+                        </label>
+                        <label class="alacarte-item">
+                            <input type="checkbox" name="upgrade_rose_petals" value="Yes">
+                            <span>Extra Fresh Rose Petal Pathway (+$30)</span>
+                        </label>
+                        <label class="alacarte-item">
+                            <input type="checkbox" name="upgrade_glass_etching" value="Yes">
+                            <span>Custom Hand-Etched Keepsake Glass (+$25)</span>
+                        </label>
+                        <label class="alacarte-item">
+                            <input type="checkbox" name="upgrade_charcuterie" value="Yes">
+                            <span>Gourmet Artisan Charcuterie Board (+$60)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- INTEGRATED FILE UPLOAD FOR DESIGN INSPIRATION -->
+                <div class="form-group">
+                    <label for="inspiration-images">Upload Inspiration Framework (Pinterest / Layouts)</label>
+                    <input type="file" id="inspiration-images" name="inspiration_photos" accept="image/*" multiple>
                 </div>
 
                 <div class="form-group">
