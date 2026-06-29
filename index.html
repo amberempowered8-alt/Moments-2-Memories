@@ -44,14 +44,14 @@
             font-weight: 300;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar - Clean Minimal Design (Removed Left Logo Text) */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             padding: 25px 50px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             background: linear-gradient(to bottom, rgba(28,22,19,0.95), rgba(28,22,19,0));
             z-index: 1000;
@@ -59,15 +59,10 @@
             backdrop-filter: blur(10px);
         }
 
-        .nav-logo {
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-            color: var(--text-light);
-            text-decoration: none;
-        }
-
-        .nav-logo span {
-            color: var(--gold-accent);
+        @media (min-width: 769px) {
+            nav {
+                justify-content: space-between;
+            }
         }
 
         .nav-links {
@@ -137,7 +132,6 @@
             z-index: 1;
         }
 
-        /* Dark overlay mask to maintain typography contrast */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -170,7 +164,6 @@
             color: var(--text-light);
             letter-spacing: 4px;
             margin-bottom: 15px;
-            animation: fadeIn 2s ease;
         }
 
         .hero-subtitle {
@@ -179,6 +172,18 @@
             letter-spacing: 6px;
             color: var(--gold-accent);
             font-weight: 300;
+        }
+
+        /* Cinematic Scroll-Reveal Animation Core Styles */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 1.4s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* About Us Section */
@@ -265,7 +270,7 @@
             letter-spacing: 1px;
         }
 
-        /* Photos Section - Upgraded to 4-Column Responsive Layout */
+        /* Photos Section - Clean Minimal Style (No Overlay Titles) */
         .lookbook-section {
             padding: 120px 5%;
             background: #171210;
@@ -309,17 +314,11 @@
             flex-direction: column;
             justify-content: flex-end;
         }
-
-        .lookbook-overlay h4 {
-            font-size: 1.4rem;
-            color: var(--text-light);
-            margin-bottom: 5px;
-        }
         
         .lookbook-overlay p {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: var(--gold-accent);
             opacity: 0.9;
         }
@@ -638,7 +637,6 @@
 <body>
 
     <nav>
-        <a href="#" class="nav-logo">M2M<span>.</span></a>
         <ul class="nav-links">
             <li><a href="#about-us">About Us</a></li>
             <li><a href="#photos">The Photos</a></li>
@@ -651,7 +649,7 @@
 
     <!-- CINEMATIC VIDEO HERO BACKGROUND -->
     <header class="hero-canvas">
-        <video class="hero-video" autoplay loop muted playsinline poster="images/proposal1.jpg">
+        <video class="hero-video" autoplay loop muted playsinline poster="images/proposal1.png">
             <source src="images/hero-bg.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -664,8 +662,7 @@
     <!-- ABOUT US SECTION -->
     <section id="about-us" class="identity-block">
         <div class="identity-visual">
-            <!-- Dynamic Slow Motion / Low Light Ambience Video Frame -->
-            <video autoplay loop muted playsinline poster="images/proposal1.jpg">
+            <video autoplay loop muted playsinline poster="images/proposal1.png">
                 <source src="images/about-ambience.mp4" type="video/mp4">
             </video>
         </div>
@@ -692,7 +689,7 @@
         </div>
     </section>
 
-    <!-- PHOTOS SECTION - NEW 4-COLUMN PREMIUM STILLS GRID -->
+    <!-- PHOTOS SECTION -->
     <section id="photos" class="lookbook-section">
         <div class="section-header">
             <h2>The Curated Canvas</h2>
@@ -700,38 +697,30 @@
         </div>
         
         <div class="lookbook-grid">
-            <!-- Still 1: proposal1.png -->
             <div class="lookbook-item">
-                <img src="images/proposal1.jpg" alt="Sedona Sunset Landscape Proposal Layout">
+                <img src="images/proposal1.png" alt="Sedona Sunset Landscape Proposal Layout">
                 <div class="lookbook-overlay">
-                    <h4>Red Rock Proposals</h4>
                     <p>Sedona Sunset Scheme</p>
                 </div>
             </div>
             
-            <!-- Still 2: anniversary1.png -->
             <div class="lookbook-item">
-                <img src="images/anniversary1.jpg" alt="Luxury Canopy Staging with Ambient Candlelight Layout">
+                <img src="images/anniversary1.png" alt="Luxury Canopy Staging with Ambient Candlelight Layout">
                 <div class="lookbook-overlay">
-                    <h4>Luxury Milestones</h4>
                     <p>Modern Candlelight Story</p>
                 </div>
             </div>
             
-            <!-- Still 3: Gemini_Generated_Image_g7aoemg7aoemg7ao.png -->
             <div class="lookbook-item">
                 <img src="images/always-forever.jpg" alt="Always and Forever Balloon Installation">
                 <div class="lookbook-overlay">
-                    <h4>Bespoke Installs</h4>
                     <p>Always & Forever Concept</p>
                 </div>
             </div>
 
-            <!-- Still 4: Gemini_Generated_Image_tjppkctjppkctjpp.png -->
             <div class="lookbook-item">
                 <img src="images/congratulations-tier.jpg" alt="Mr and Mrs Milestone Floral Design">
                 <div class="lookbook-overlay">
-                    <h4>Bespoke Details</h4>
                     <p>Bespoke Floral Staging</p>
                 </div>
             </div>
@@ -936,7 +925,37 @@
         <p>&copy; 2026 Moments 2 Memories. All Rights Reserved.</p>
     </footer>
 
+    <!-- INTERSECTION OBSERVER PIPELINE FOR FADE-IN MOVEMENT -->
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scrollElements = document.querySelectorAll("section, .hero-content");
+
+            scrollElements.forEach(el => el.classList.add("reveal-on-scroll"));
+
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add("active");
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.15)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", () => { 
+                handleScrollAnimation();
+            });
+            
+            handleScrollAnimation();
+        });
+
         function selectTier(tierName) {
             const tierSelect = document.getElementById('experience-tier');
             tierSelect.value = tierName;
