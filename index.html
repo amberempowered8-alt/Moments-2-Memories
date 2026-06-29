@@ -265,7 +265,7 @@
             letter-spacing: 1px;
         }
 
-        /* Photos Section */
+        /* Photos Section - Upgraded to 4-Column Responsive Layout */
         .lookbook-section {
             padding: 120px 5%;
             background: #171210;
@@ -274,8 +274,8 @@
 
         .lookbook-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             margin-top: 50px;
         }
 
@@ -303,7 +303,7 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            padding: 30px;
+            padding: 25px 20px;
             background: linear-gradient(to top, rgba(23,18,16,0.95), rgba(23,18,16,0));
             display: flex;
             flex-direction: column;
@@ -311,13 +311,13 @@
         }
 
         .lookbook-overlay h4 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: var(--text-light);
             margin-bottom: 5px;
         }
         
         .lookbook-overlay p {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--gold-accent);
@@ -619,6 +619,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @media (max-width: 1024px) {
+            .lookbook-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 768px) {
             nav { padding: 20px; }
             .nav-links { display: none; }
@@ -647,7 +651,7 @@
 
     <!-- CINEMATIC VIDEO HERO BACKGROUND -->
     <header class="hero-canvas">
-        <video class="hero-video" autoplay loop muted playsinline poster="images/proposal_classic_romance.jpg">
+        <video class="hero-video" autoplay loop muted playsinline poster="images/proposal1.jpg">
             <source src="images/hero-bg.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -661,7 +665,7 @@
     <section id="about-us" class="identity-block">
         <div class="identity-visual">
             <!-- Dynamic Slow Motion / Low Light Ambience Video Frame -->
-            <video autoplay loop muted playsinline poster="images/proposal_classic_romance.jpg">
+            <video autoplay loop muted playsinline poster="images/proposal1.jpg">
                 <source src="images/about-ambience.mp4" type="video/mp4">
             </video>
         </div>
@@ -688,7 +692,7 @@
         </div>
     </section>
 
-    <!-- PHOTOS SECTION -->
+    <!-- PHOTOS SECTION - NEW 4-COLUMN PREMIUM STILLS GRID -->
     <section id="photos" class="lookbook-section">
         <div class="section-header">
             <h2>The Curated Canvas</h2>
@@ -696,27 +700,39 @@
         </div>
         
         <div class="lookbook-grid">
+            <!-- Still 1: proposal1.png -->
             <div class="lookbook-item">
-                <img src="images/proposal_classic_romance.jpg" alt="Proposal Layout">
+                <img src="images/proposal1.jpg" alt="Sedona Sunset Landscape Proposal Layout">
                 <div class="lookbook-overlay">
-                    <h4>Proposals</h4>
-                    <p>Classic Romance Scheme</p>
-                </div>
-            </div>
-            
-            <div class="lookbook-item">
-                <img src="images/anniversary_sedona_sunset.jpg" alt="Anniversary Layout">
-                <div class="lookbook-overlay">
-                    <h4>Anniversaries</h4>
+                    <h4>Red Rock Proposals</h4>
                     <p>Sedona Sunset Scheme</p>
                 </div>
             </div>
             
+            <!-- Still 2: anniversary1.png -->
             <div class="lookbook-item">
-                <img src="images/milestone_modern_luxury.jpg" alt="Milestone Layout">
+                <img src="images/anniversary1.jpg" alt="Luxury Canopy Staging with Ambient Candlelight Layout">
                 <div class="lookbook-overlay">
-                    <h4>Milestones</h4>
-                    <p>Modern Luxury Scheme</p>
+                    <h4>Luxury Milestones</h4>
+                    <p>Modern Candlelight Story</p>
+                </div>
+            </div>
+            
+            <!-- Still 3: Gemini_Generated_Image_g7aoemg7aoemg7ao.png -->
+            <div class="lookbook-item">
+                <img src="images/always-forever.jpg" alt="Always and Forever Balloon Installation">
+                <div class="lookbook-overlay">
+                    <h4>Bespoke Installs</h4>
+                    <p>Always & Forever Concept</p>
+                </div>
+            </div>
+
+            <!-- Still 4: Gemini_Generated_Image_tjppkctjppkctjpp.png -->
+            <div class="lookbook-item">
+                <img src="images/congratulations-tier.jpg" alt="Mr and Mrs Milestone Floral Design">
+                <div class="lookbook-overlay">
+                    <h4>Bespoke Details</h4>
+                    <p>Bespoke Floral Staging</p>
                 </div>
             </div>
         </div>
