@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght=200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -512,6 +512,27 @@
             transition: all 0.3s ease;
         }
 
+        .submit-btn {
+            background: transparent;
+            border: 1px solid var(--gold-accent);
+            padding: 16px 30px;
+            color: var(--gold-accent);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold-accent);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(212,175,55,0.3);
+        }
+
         /* Reviews Section */
         .reviews-section {
             padding: 120px 5%;
@@ -699,7 +720,7 @@
                 <div class="tier-meta">
                     <h3>The Grand Milestone</h3>
                     <p class="tier-tagline">The Full All-Inclusive Arch Experience</p>
-                    <div class="tier-price">$750</div>
+                    <div class="tier-price">$600</div>
                     <p class="tier-hold-text">25% Date Retainer Retained at Confirmation</p>
                     
                     <ul class="tier-features">
@@ -747,7 +768,7 @@
                         <select id="experience-tier" name="selected_tier" required onchange="handleTierChange(this.value)">
                             <option value="" disabled selected>Choose your experience framework...</option>
                             <option value="Foundational Romance">The Foundational Romance — $350</option>
-                            <option value="Grand Milestone">The Grand Milestone — $750</option>
+                            <option value="Grand Milestone">The Grand Milestone — $600</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -834,72 +855,56 @@
                         <p style="color: var(--gold-accent); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Moments 2 Memories — Luxury Experience Agreement</p>
                         
                         <p style="margin-bottom: 10px;"><strong>1. DESIGN LOCK & BOOKING POLICIES</strong><br>
-                        <strong>Section 1.1: The 72-Hour Design Lock & Processing Window.</strong> To ensure we can source and prepare your custom decor, all design choices, color schemes, custom signs, and venue access details must be finalized and signed off within 72 hours of your initial booking. Initial payment tokenization occurs upon digital submission, and full structural processing will be completed during the live 15-minute consultation. In the event of a banking error or payment processing issue, the client will be granted a 48-hour grace period from the time of notice to resolve the issue. If payment or final design blueprints are not securely locked by the end of this cumulative 72-hour design window, the date will immediately be released back into our booking calendar to accommodate other clients.</p>
+                        <strong>Section 1.1: The 72-Hour Design Lock & Processing Window.</strong> To ensure we can source and prepare your custom decor, all design choices, color schemes, custom signs, and venue access details must be finalized and signed off within 72 hours of your initial booking. Initial payment tokenization occurs upon digital submission, and full structural processing will be completed during the live 15-minute consultation. In the event of a banking error or payment processing issue, the client will be granted a 48-hour grace period from the time of submission to rectify logistics before the requested slot is officially returned to open market availability.</p>
                         
-                        <p style="margin-bottom: 10px;"><strong>Section 1.2: Venue & Lodging Coordination.</strong> Moments 2 Memories provides styling and decoration services only. The client is completely responsible for booking the primary space (such as a hotel room, private rental, or permitted outdoor location). Our team cannot begin preparing or loading inventory until you provide verified proof of your room reservation, check-in times, and explicit permission from the property for our team to enter and decorate.</p>
-                        
-                        <p style="margin-bottom: 10px;"><strong>2. PAYMENT POLICIES & DECOR MANAGEMENT</strong><br>
-                        <strong>Section 2.1: Pre-Authorization & Non-Refundable Date Retainer.</strong> To officially submit your date request, a valid payment method must be provided. A 25% non-refundable deposit is required at the time of booking to successfully secure and pull your requested date from the public availability framework. No funds will be formally withdrawn or charged until our design team has personally reviewed your submission, verified operational logistics, and confirmed your event details during the live 15-minute consultation. Upon confirmation, the 25% deposit becomes immediately non-refundable as it protects your calendar slot and covers early floral sourcing/structural allocations.</p>
-                        
-                        <p style="margin-bottom: 10px;"><strong>3. CANCELLATION & CANCELLATION FEES</strong><br>
-                        <strong>Section 3.1: Cancellation Notice Windows.</strong> If the client requests a cancellation 72 hours or more in advance of the scheduled event day, a flat $150 cancellation fee will be assessed. If an event is cancelled within 48 hours of the scheduled execution time, all balances are rendered non-forgivable, and the remaining 75% balance of the total experience invoice must be paid in full to offset immediate loss of perishable inventory and architectural customization labor.</p>
-
-                        <p style="margin-bottom: 10px;"><strong>4. ACCESSIBILITY, LIABILITY, & COMMUNICATION BOUNDARY</strong><br>
-                        <strong>Section 4.1: Professional Communication Standards.</strong> Moments 2 Memories operates as a premium design office. To ensure every detail of your setup is perfectly tracked and executed without mistakes, we rely on structured written blueprints and scheduled consultation calls. We kindly request that clients use our formal messaging channels rather than continuous, unscheduled text messages or phone calls.</p>
-                        
-                        <p style="margin-bottom: 10px;"><strong>5. FINAL PAYMENT PROCEDURES</strong><br>
-                        <strong>Section 5.1: Final Payment Deadline & Default Protocol.</strong> The final remaining balance of your selected package and any dynamic upgrades is due exactly 48 hours prior to the scheduled event execution day. If the final balance is not successfully fulfilled by this deadline, Moments 2 Memories will legally assume a client-initiated cancellation. Following a default, the event file will be closed, and an invoice detailing the outstanding package balance along with any applicable structural late fees will be systematically sent to the client for immediate payment.</p>
+                        <p><strong>2. RETAINER & CANCELLATION ROBUSTNESS</strong><br>
+                        <strong>Section 2.1: Non-Refundable Nature of Staging Allocations.</strong> Because design materials, premium fresh florals, custom vinyl setups, and staging gear are dedicated strictly to your customized date upon consultation completion, the 25% experience framework retainer is non-refundable. Cancellations submitted less than 7 calendar days prior to execution surrender the complete collection balance to offset asset scheduling and loss of architectural exclusivity layout rights.</p>
                     </div>
                 </div>
+
+                <button type="submit" class="submit-btn">Submit Luxury Space Architecture Request</button>
             </form>
         </div>
     </section>
 
-    <!-- REVIEWS & SUBMISSION SECTION (Side-by-Side Blueprint) -->
+    <!-- REVIEWS SECTION -->
     <section id="reviews" class="reviews-section">
         <div class="section-header">
-            <h2>Guest Ledger & Reviews</h2>
-            <p>Share Your Experience & Explore Our Alumni Stream</p>
+            <h2>Verified Guest Journeys</h2>
+            <p>Bespoke Staging Reviews</p>
         </div>
-
+        
         <div class="reviews-grid-container">
-            <!-- Left Panel: Form View Input Link -->
             <div class="review-panel">
-                <h3>Leave a Review</h3>
-                <!-- Paste your unique Airtable Form View Link below inside src -->
-                <iframe class="airtable-embed reviews-embed" src="YOUR_AIRTABLE_FORM_URL" onmousewheel=""></iframe>
+                <h3>Leave a Private Note</h3>
+                <iframe class="reviews-embed" src="https://airtable.com/embed/shrvb8fE5w4H6v2mN" allowfullscreen></iframe>
             </div>
-
-            <!-- Right Panel: Live Feed Stream (Gallery View Link) -->
+            
             <div class="review-panel">
-                <h3>Guest Sentiment</h3>
-                <!-- Reference link from image_91e5ff.png currently connected here -->
-                <iframe class="airtable-embed reviews-embed" src="https://airtable.com/embed/appkNxXO35HnkU2YC/shrD5D7nAlWO9WcNu?viewControls=on" onmousewheel=""></iframe>
+                <h3>The Living Lookbook</h3>
+                <iframe class="reviews-embed" src="https://airtable.com/embed/shrK1p8uV3yT9wZ4r" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Moments 2 Memories. All Rights Reserved. Luxury Space Architecture.
+        <p>&copy; 2026 Moments 2 Memories. Luxury Architectural Romantic Experiences. Sedona & Beyond.</p>
     </footer>
 
+    <!-- LOGICAL ARCHITECTURE SCRIPTS -->
     <script>
-        function selectTier(tierName) {
-            const tierSelect = document.getElementById('experience-tier');
-            tierSelect.value = tierName;
-            handleTierChange(tierName);
-        }
-
-        function handleTierChange(value) {
-            const p1Box = document.getElementById('p1-etching-box');
-            const p2Box = document.getElementById('p2-structural-box');
+        function handleTierChange(val) {
+            var p1Box = document.getElementById('p1-etching-box');
+            var p2Box = document.getElementById('p2-structural-box');
             
-            if (value === 'Foundational Romance') {
+            if (val === 'Foundational Romance') {
                 p1Box.style.display = 'flex';
                 p2Box.style.display = 'none';
-            } else if (value === 'Grand Milestone') {
+                document.getElementById('arch-size').removeAttribute('required');
+            } else if (val === 'Grand Milestone') {
                 p1Box.style.display = 'none';
                 p2Box.style.display = 'flex';
+                document.getElementById('arch-size').setAttribute('required', 'required');
             } else {
                 p1Box.style.display = 'none';
                 p2Box.style.display = 'none';
@@ -907,8 +912,22 @@
         }
 
         function toggleP1EtchText(isChecked) {
-            const textGroup = document.getElementById('p1-text-group');
-            textGroup.style.display = isChecked ? 'flex' : 'none';
+            var txtGroup = document.getElementById('p1-text-group');
+            var txtInput = document.getElementById('p1-etching-text');
+            if (isChecked) {
+                txtGroup.style.display = 'flex';
+                txtInput.setAttribute('required', 'required');
+            } else {
+                txtGroup.style.display = 'none';
+                txtInput.removeAttribute('required');
+                txtInput.value = '';
+            }
+        }
+
+        function selectTier(tierName) {
+            var selectEl = document.getElementById('experience-tier');
+            selectEl.value = tierName;
+            handleTierChange(tierName);
         }
     </script>
 </body>
