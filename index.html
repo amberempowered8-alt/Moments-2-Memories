@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght=200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -260,11 +260,11 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.8s ease;
-            filter: grayscale(15%) contrast(105%);
+            filter: contrast(102%) brightness(98%);
         }
 
         .lookbook-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .lookbook-overlay {
@@ -272,7 +272,7 @@
             bottom: 0;
             width: 100%;
             padding: 30px;
-            background: linear-gradient(to top, rgba(23,18,16,0.9), rgba(23,18,16,0));
+            background: linear-gradient(to top, rgba(23,18,16,0.95), rgba(23,18,16,0));
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -282,6 +282,14 @@
             font-size: 1.6rem;
             color: var(--text-light);
             margin-bottom: 5px;
+        }
+        
+        .lookbook-overlay p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold-accent);
+            opacity: 0.9;
         }
 
         /* Packages Section */
@@ -506,25 +514,40 @@
 
         /* Reviews Section */
         .reviews-section {
-            padding: 120px 10%;
+            padding: 120px 5%;
             background: var(--bg-dark);
             border-top: 1px solid rgba(212,175,55,0.1);
         }
 
-        .reviews-container {
-            max-width: 850px;
+        .reviews-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: var(--panel-bg);
-            border: 1px solid rgba(212,175,55,0.15);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
         }
 
-        /* Airtable Embed Containment */
+        .review-panel {
+            background: var(--panel-bg);
+            border: 1px solid rgba(212,175,55,0.15);
+            padding: 40px 30px;
+            border-radius: 4px;
+        }
+
+        .review-panel h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
         .reviews-embed {
             width: 100%;
+            height: 500px;
             background: transparent;
+            border: none;
             display: block;
         }
 
@@ -542,6 +565,10 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .reviews-grid-container { grid-template-columns: 1fr; gap: 30px; }
         }
 
         @media (max-width: 768px) {
@@ -612,23 +639,26 @@
         
         <div class="lookbook-grid">
             <div class="lookbook-item">
-                <img src="images/proposal1.jpg" alt="Luxury Sedona Proposal">
+                <img src="images/proposal_classic_romance.jpg" alt="Realistic phone photo capture of a luxury hotel suite styled in the Classic Romance scheme. Thick trails of real deep crimson rose petals curve along a floor lit by hundreds of flickering amber LED tealights. In the background, glowing custom warm-white 'You + Me' illuminated letters stand tall next to floating matte white and polished gold ceiling balloons.">
                 <div class="lookbook-overlay">
                     <h4>Proposals</h4>
+                    <p>Classic Romance Scheme</p>
                 </div>
             </div>
             
             <div class="lookbook-item">
-                <img src="images/anniversary1.jpg" alt="Bespoke Luxury Room Styling">
+                <img src="images/anniversary_sedona_sunset.jpg" alt="Realistic handheld phone photo of a boutique resort patio looking out over Sedona red rocks during twilight. A premium structural table-size arch is beautifully woven with blush, terracotta, and champagne-toned seasonal florals. Two hand-etched crystal toasting glasses sit on a table catch the light of dense candle staging on the stone floor.">
                 <div class="lookbook-overlay">
                     <h4>Anniversaries</h4>
+                    <p>Sedona Sunset Scheme</p>
                 </div>
             </div>
             
             <div class="lookbook-item">
-                <img src="images/anniversary2.jpg" alt="Premium Candle Staging">
+                <img src="images/milestone_modern_luxury.jpg" alt="Realistic phone camera snapshot of an immersive luxury room styling. An intricate path built of heavy monochrome black and white silk rose petals is interlaced with crisp, bright white pillar candles. High-end floating silver and black balloons cover the ceiling, framing a perfectly staged surprise milestone celebration.">
                 <div class="lookbook-overlay">
                     <h4>Milestones</h4>
+                    <p>Modern Luxury Scheme</p>
                 </div>
             </div>
         </div>
@@ -642,13 +672,12 @@
         </div>
         
         <div class="tier-grid">
-            <!-- PACKAGE 1 -->
             <div class="tier-card">
                 <div class="tier-meta">
                     <h3>The Foundational Romance</h3>
                     <p class="tier-tagline">Elegant & High-Impact Staging</p>
                     <div class="tier-price">$350</div>
-                    <p class="tier-hold-text">Authorization Hold Fee Only</p>
+                    <p class="tier-hold-text">25% Date Retainer Retained at Confirmation</p>
                     
                     <ul class="tier-features">
                         <li>Illuminated Message Choice (<em>You + Me</em> OR <em>Always & Forever</em>) or Custom Balloon Message</li>
@@ -666,13 +695,12 @@
                 <a href="#intake" onclick="selectTier('Foundational Romance')" class="cta-btn" style="text-align: center;">Select Foundational Experience</a>
             </div>
 
-            <!-- PACKAGE 2 -->
             <div class="tier-card">
                 <div class="tier-meta">
                     <h3>The Grand Milestone</h3>
                     <p class="tier-tagline">The Full All-Inclusive Arch Experience</p>
                     <div class="tier-price">$750</div>
-                    <p class="tier-hold-text">Authorization Hold Fee Only</p>
+                    <p class="tier-hold-text">25% Date Retainer Retained at Confirmation</p>
                     
                     <ul class="tier-features">
                         <li>Illuminated Message Choice (<em>You + Me</em> OR <em>Always & Forever</em>) or Custom Balloon Message</li>
@@ -719,7 +747,7 @@
                         <select id="experience-tier" name="selected_tier" required onchange="handleTierChange(this.value)">
                             <option value="" disabled selected>Choose your experience framework...</option>
                             <option value="Foundational Romance">The Foundational Romance — $350</option>
-                            <option value="Grand Milestone">The Grand Milestone — $600/option>
+                            <option value="Grand Milestone">The Grand Milestone — $750</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -764,7 +792,6 @@
                     </div>
                 </div>
 
-                <!-- DYNAMIC BOX FOR PACKAGE 1: GLASS ETCHING UPGRADE -->
                 <div id="p1-etching-box" class="conditional-box">
                     <label class="checkbox-label">
                         <input type="checkbox" id="p1-etching-checkbox" name="p1_etched_upgrade" value="Yes" onchange="toggleP1EtchText(this.checked)">
@@ -776,7 +803,6 @@
                     </div>
                 </div>
 
-                <!-- DYNAMIC BOX FOR PACKAGE 2: ARCH SIZE & INCLUDED ETCHING TEXT -->
                 <div id="p2-structural-box" class="conditional-box">
                     <div class="form-group">
                         <label for="arch-size">Structural Framework Scale & Size</label>
@@ -802,37 +828,54 @@
                     <textarea id="vision-canvas" name="vision_notes" placeholder="Detail your exact vision, color variations, custom structural requests or specific setup schedules..."></textarea>
                 </div>
 
-                <!-- SCROLLABLE CLIENT AGREEMENT -->
                 <div class="form-group" style="margin-top: 15px;">
                     <label>Luxury Experience Agreement & Terms</label>
                     <div style="background: var(--input-bg); border: 1px solid rgba(212,175,55,0.15); padding: 20px; height: 180px; overflow-y: scroll; font-size: 0.75rem; color: rgba(234,227,217,0.8); font-weight: 300; line-height: 1.5; margin-bottom: 15px;">
                         <p style="color: var(--gold-accent); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Moments 2 Memories — Luxury Experience Agreement</p>
                         
                         <p style="margin-bottom: 10px;"><strong>1. DESIGN LOCK & BOOKING POLICIES</strong><br>
-                        <strong>Section 1.1: The 72-Hour Design Lock.</strong> To ensure we can source and prepare your custom decor, all design choices, color schemes, custom signs, and venue access details must be finalized and signed off within 72 hours of your initial booking. If these details are not finalized within this window, your date may be released back into our booking calendar to accommodate other clients.</p>
+                        <strong>Section 1.1: The 72-Hour Design Lock & Processing Window.</strong> To ensure we can source and prepare your custom decor, all design choices, color schemes, custom signs, and venue access details must be finalized and signed off within 72 hours of your initial booking. Initial payment tokenization occurs upon digital submission, and full structural processing will be completed during the live 15-minute consultation. In the event of a banking error or payment processing issue, the client will be granted a 48-hour grace period from the time of notice to resolve the issue. If payment or final design blueprints are not securely locked by the end of this cumulative 72-hour design window, the date will immediately be released back into our booking calendar to accommodate other clients.</p>
                         
                         <p style="margin-bottom: 10px;"><strong>Section 1.2: Venue & Lodging Coordination.</strong> Moments 2 Memories provides styling and decoration services only. The client is completely responsible for booking the primary space (such as a hotel room, private rental, or permitted outdoor location). Our team cannot begin preparing or loading inventory until you provide verified proof of your room reservation, check-in times, and explicit permission from the property for our team to enter and decorate.</p>
                         
                         <p style="margin-bottom: 10px;"><strong>2. PAYMENT POLICIES & DECOR MANAGEMENT</strong><br>
-                        <strong>Section 2.1: Pre-Authorization & Hold Deposit.</strong> To officially submit your date request, a valid payment method must be provided. The foundational experience fee acts as a pre-authorization hold to protect your calendar slot. <strong>No funds will be withdrawn or charged until our design team has personally reviewed your submission, verified availability, and formally confirmed your date and event details.</strong></p>
+                        <strong>Section 2.1: Pre-Authorization & Non-Refundable Date Retainer.</strong> To officially submit your date request, a valid payment method must be provided. A 25% non-refundable deposit is required at the time of booking to successfully secure and pull your requested date from the public availability framework. No funds will be formally withdrawn or charged until our design team has personally reviewed your submission, verified operational logistics, and confirmed your event details during the live 15-minute consultation. Upon confirmation, the 25% deposit becomes immediately non-refundable as it protects your calendar slot and covers early floral sourcing/structural allocations.</p>
                         
-                        <p style="margin-bottom: 10px;"><strong>3. ACCESSIBILITY, LIABILITY, & COMMUNICATION BOUNDARY</strong><br>
-                        <strong>Section 3.1: Professional Communication Standards.</strong> Moments 2 Memories operates as a premium design office. To ensure every detail of your setup is perfectly tracked and executed without mistakes, we rely on structured written blueprints and scheduled consultation calls. We kindly request that clients use our formal messaging channels rather than continuous, unscheduled text messages or phone calls.</p>
+                        <p style="margin-bottom: 10px;"><strong>3. CANCELLATION & CANCELLATION FEES</strong><br>
+                        <strong>Section 3.1: Cancellation Notice Windows.</strong> If the client requests a cancellation 72 hours or more in advance of the scheduled event day, a flat $150 cancellation fee will be assessed. If an event is cancelled within 48 hours of the scheduled execution time, all balances are rendered non-forgivable, and the remaining 75% balance of the total experience invoice must be paid in full to offset immediate loss of perishable inventory and architectural customization labor.</p>
+
+                        <p style="margin-bottom: 10px;"><strong>4. ACCESSIBILITY, LIABILITY, & COMMUNICATION BOUNDARY</strong><br>
+                        <strong>Section 4.1: Professional Communication Standards.</strong> Moments 2 Memories operates as a premium design office. To ensure every detail of your setup is perfectly tracked and executed without mistakes, we rely on structured written blueprints and scheduled consultation calls. We kindly request that clients use our formal messaging channels rather than continuous, unscheduled text messages or phone calls.</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>5. FINAL PAYMENT PROCEDURES</strong><br>
+                        <strong>Section 5.1: Final Payment Deadline & Default Protocol.</strong> The final remaining balance of your selected package and any dynamic upgrades is due exactly 48 hours prior to the scheduled event execution day. If the final balance is not successfully fulfilled by this deadline, Moments 2 Memories will legally assume a client-initiated cancellation. Following a default, the event file will be closed, and an invoice detailing the outstanding package balance along with any applicable structural late fees will be systematically sent to the client for immediate payment.</p>
                     </div>
                 </div>
             </form>
         </div>
     </section>
 
-    <!-- REVIEWS SECTION -->
+    <!-- REVIEWS & SUBMISSION SECTION (Side-by-Side Blueprint) -->
     <section id="reviews" class="reviews-section">
         <div class="section-header">
             <h2>Guest Ledger & Reviews</h2>
-            <p>Live Sentiment Stream from Our Experience Alumni</p>
+            <p>Share Your Experience & Explore Our Alumni Stream</p>
         </div>
 
-        <div class="reviews-container">
-            <iframe class="airtable-embed reviews-embed" src="https://airtable.com/embed/appkNxXO35HnkU2YC/shrD5D7nAlWO9WcNu?viewControls=on" frameborder="0" onmousewheel="" height="533" style="background: transparent; border: 1px solid rgba(212,175,55,0.15);"></iframe>
+        <div class="reviews-grid-container">
+            <!-- Left Panel: Form View Input Link -->
+            <div class="review-panel">
+                <h3>Leave a Review</h3>
+                <!-- Paste your unique Airtable Form View Link below inside src -->
+                <iframe class="airtable-embed reviews-embed" src="YOUR_AIRTABLE_FORM_URL" onmousewheel=""></iframe>
+            </div>
+
+            <!-- Right Panel: Live Feed Stream (Gallery View Link) -->
+            <div class="review-panel">
+                <h3>Guest Sentiment</h3>
+                <!-- Reference link from image_91e5ff.png currently connected here -->
+                <iframe class="airtable-embed reviews-embed" src="https://airtable.com/embed/appkNxXO35HnkU2YC/shrD5D7nAlWO9WcNu?viewControls=on" onmousewheel=""></iframe>
+            </div>
         </div>
     </section>
 
