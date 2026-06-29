@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Our Network | Moments 2 Memories</title>
+    <title>Moments 2 Memories | Luxury Romantic Architecture</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,20 +27,24 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-light);
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, .serif-font {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
         }
 
-        /* Navigation */
+        /* Navigation Bar */
         nav {
             position: fixed;
             top: 0;
@@ -49,9 +53,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(28, 22, 19, 0.95);
+            background: linear-gradient(to bottom, rgba(28,22,19,0.95), rgba(28,22,19,0));
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212,175,55,0.1);
             backdrop-filter: blur(10px);
         }
 
@@ -66,7 +70,13 @@
             color: var(--gold-accent);
         }
 
-        .back-link {
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
             color: var(--text-light);
             text-decoration: none;
             font-size: 0.75rem;
@@ -74,54 +84,343 @@
             text-transform: uppercase;
             transition: color 0.4s ease;
             opacity: 0.8;
-            border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
-            padding-bottom: 2px;
         }
 
-        .back-link:hover {
+        .nav-links a:hover {
             color: var(--gold-accent);
             opacity: 1;
-            border-bottom-color: var(--gold-accent);
         }
 
-        /* Content Header */
-        .join-header {
-            margin-top: 160px;
-            text-align: center;
-            padding: 0 20px;
-            margin-bottom: 60px;
-        }
-
-        .join-header h1 {
-            font-size: 4rem;
-            color: var(--text-light);
+        .cta-btn {
+            border: 1px solid var(--gold-accent);
+            padding: 10px 22px;
+            font-size: 0.7rem;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: var(--gold-accent);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            background: transparent;
+            cursor: pointer;
         }
 
-        .join-header p {
+        .cta-btn:hover {
+            background: var(--gold-accent);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(212,175,55,0.4);
+        }
+
+        /* Hero Canvas */
+        .hero-canvas {
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1C1613 0%, #2A201A 50%, #1C1613 100%);
+            padding: 0 20px;
+            position: relative;
+            border-bottom: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .hero-canvas::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 1px;
+            height: 80px;
+            background: var(--gold-accent);
+            opacity: 0.5;
+        }
+
+        .hero-title {
+            font-size: 5.5rem;
+            color: var(--text-light);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--gold-accent);
+            font-weight: 300;
+        }
+
+        /* About Us Section */
+        .identity-block {
+            background-color: var(--cream-light);
+            color: var(--text-dark);
+            padding: 120px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .identity-visual {
+            position: relative;
+            border: 1px solid rgba(44,37,32,0.1);
+            padding: 20px;
+            background: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .identity-visual img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+        }
+
+        .identity-text h2 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .identity-text p {
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        .profile-badges {
+            display: flex;
+            gap: 40px;
+            border-top: 1px solid rgba(44,37,32,0.1);
+            padding-top: 30px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .badge-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #EADFC9;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
             font-size: 0.85rem;
+            border: 1px solid var(--gold-accent);
+        }
+
+        .badge-info h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .badge-info span {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Photos Section */
+        .lookbook-section {
+            padding: 120px 5%;
+            background: #171210;
+            border-top: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .lookbook-item {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border: 1px solid rgba(212,175,55,0.1);
+            background: var(--panel-bg);
+        }
+
+        .lookbook-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: contrast(102%) brightness(98%);
+        }
+
+        .lookbook-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .lookbook-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(23,18,16,0.95), rgba(23,18,16,0));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .lookbook-overlay h4 {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .lookbook-overlay p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold-accent);
+            opacity: 0.9;
+        }
+
+        /* Packages Section */
+        .tier-section {
+            padding: 120px 10% 60px 10%;
+            background: var(--bg-dark);
+            border-top: 1px solid rgba(212,175,55,0.05);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 3.8rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--gold-accent);
-            max-width: 600px;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        /* Form Container */
-        .directory-section {
-            padding: 0 10% 120px 10%;
+        .tier-card {
+            background: var(--panel-bg);
+            border: 1px solid rgba(212,175,55,0.1);
+            padding: 60px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.4s ease;
         }
 
-        .directory-container {
+        .tier-card:hover {
+            border-color: var(--gold-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .tier-meta h3 {
+            font-size: 2.2rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .tier-tagline {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-accent);
+            margin-bottom: 30px;
+        }
+
+        .tier-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .tier-hold-text {
+            font-size: 0.75rem;
+            color: var(--gold-accent);
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .tier-features {
+            list-style: none;
+            border-top: 1px solid rgba(212,175,55,0.1);
+            padding-top: 30px;
+            margin-bottom: 25px;
+        }
+
+        .tier-features li {
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            position: relative;
+            padding-left: 25px;
+            font-weight: 300;
+        }
+
+        .tier-features li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gold-accent);
+        }
+
+        .tier-intake-note {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            font-style: italic;
+            border-top: 1px dashed rgba(212,175,55,0.15);
+            padding-top: 15px;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        /* Intake Form Section */
+        .intake-section {
+            padding: 60px 10% 120px 10%;
+            background: var(--bg-dark);
+        }
+
+        .intake-container {
             max-width: 750px;
             margin: 0 auto;
             background: var(--panel-bg);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212,175,55,0.15);
             padding: 60px;
+            position: relative;
         }
 
-        .directory-form {
+        .intake-form {
             display: flex;
             flex-direction: column;
             gap: 25px;
@@ -144,13 +443,14 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--gold-accent);
+            font-weight: 400;
         }
 
         .form-group input, 
         .form-group select, 
         .form-group textarea {
             background: var(--input-bg);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212,175,55,0.15);
             padding: 14px 18px;
             color: var(--text-light);
             font-family: 'Montserrat', sans-serif;
@@ -164,12 +464,36 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--gold-accent);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 10px rgba(212,175,55,0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
+        }
+
+        .conditional-box {
+            background: var(--input-bg);
+            border: 1px dashed rgba(212,175,55,0.3);
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            accent-color: var(--gold-accent);
+            width: 16px;
+            height: 16px;
         }
 
         .form-group input[type="file"] {
@@ -183,7 +507,7 @@
             color: var(--gold-accent);
             padding: 5px 12px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-right: 15px;
@@ -208,7 +532,46 @@
         .submit-btn:hover {
             background: var(--gold-accent);
             color: var(--bg-dark);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 20px rgba(212,175,55,0.3);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 120px 5%;
+            background: var(--bg-dark);
+            border-top: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .reviews-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-panel {
+            background: var(--panel-bg);
+            border: 1px solid rgba(212,175,55,0.15);
+            padding: 40px 30px;
+            border-radius: 4px;
+        }
+
+        .review-panel h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .reviews-embed {
+            width: 100%;
+            height: 500px;
+            background: transparent;
+            border: none;
+            display: block;
         }
 
         footer {
@@ -218,42 +581,307 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             opacity: 0.4;
-            border-top: 1px solid rgba(212, 175, 55, 0.05);
+            border-top: 1px solid rgba(212,175,55,0.05);
+            background: var(--bg-dark);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .reviews-grid-container { grid-template-columns: 1fr; gap: 30px; }
         }
 
         @media (max-width: 768px) {
             nav { padding: 20px; }
-            .join-header h1 { font-size: 2.8rem; }
+            .nav-links { display: none; }
+            .hero-title { font-size: 3.2rem; }
+            .identity-block { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
+            .tier-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
-            .directory-container { padding: 30px 20px; }
+            .intake-container { padding: 30px 20px; }
+            .lookbook-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="nav-logo">M2M<span>.</span></a>
-        <a href="index.html" class="back-link">← Back to Main</a>
+        <a href="#" class="nav-logo">M2M<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#photos">The Photos</a></li>
+            <li><a href="#packages">Experiences</a></li>
+            <li><a href="#intake">Design Studio Form</a></li>
+            <li><a href="#reviews">Guest Reviews</a></li>
+        </ul>
+        <a href="#intake" class="cta-btn">Book An Experience</a>
     </nav>
 
-    <header class="join-header">
-        <h1>Join the Collective</h1>
-        <p>Submit your enterprise to the Moments 2 Memories local economic networking alliance</p>
+    <header class="hero-canvas">
+        <h1 class="hero-title">Moments 2 Memories</h1>
+        <p class="hero-subtitle">Luxury Romantic Architecture</p>
     </header>
 
-    <section class="directory-section">
-        <div class="directory-container">
-            <!-- AIRTABLE EMBED STRATEGY -->
-            <!-- Paste your Airtable Form Share Link inside the src attribute below -->
-            <iframe 
-                class="airtable-embed" 
-                src="https://airtable.com/embed/appYOUR_DIRECTORY_FORM_ID?backgroundColor=transparent" 
-                frameborder="0" 
-                onmousewheel="" 
-                width="100%" 
-                height="750" 
-                style="background: transparent; border: none;">
-            </iframe>
+    <!-- ABOUT US SECTION -->
+    <section id="about-us" class="identity-block">
+        <div class="identity-visual">
+            <img src="images/logo.jpeg" alt="Moments 2 Memories Logo">
+        </div>
+        <div class="identity-text">
+            <h2>Intentional luxury built around your love story.</h2>
+            <p>Moments 2 Memories transforms standard rooms, landscapes, and luxury spaces across Sedona, Phoenix, and the Verde Valley into striking romantic atmospheres. We handle every design element from custom candlelight layouts to bespoke structure staging, giving you an exquisite space built completely for your milestone.</p>
+            
+            <div class="profile-badges">
+                <div class="badge">
+                    <div class="badge-circle">B</div>
+                    <div class="badge-info">
+                        <h4>Bre</h4>
+                        <span>Design Principal</span>
+                    </div>
+                </div>
+                <div class="badge">
+                    <div class="badge-circle">A</div>
+                    <div class="badge-info">
+                        <h4>Amber</h4>
+                        <span>Operations Lead</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTOS SECTION -->
+    <section id="photos" class="lookbook-section">
+        <div class="section-header">
+            <h2>The Curated Canvas</h2>
+            <p>Moments 2 Memories Lookbook Portfolio</p>
+        </div>
+        
+        <div class="lookbook-grid">
+            <div class="lookbook-item">
+                <img src="images/proposal_classic_romance.jpg" alt="Proposal Layout">
+                <div class="lookbook-overlay">
+                    <h4>Proposals</h4>
+                    <p>Classic Romance Scheme</p>
+                </div>
+            </div>
+            
+            <div class="lookbook-item">
+                <img src="images/anniversary_sedona_sunset.jpg" alt="Anniversary Layout">
+                <div class="lookbook-overlay">
+                    <h4>Anniversaries</h4>
+                    <p>Sedona Sunset Scheme</p>
+                </div>
+            </div>
+            
+            <div class="lookbook-item">
+                <img src="images/milestone_modern_luxury.jpg" alt="Milestone Layout">
+                <div class="lookbook-overlay">
+                    <h4>Milestones</h4>
+                    <p>Modern Luxury Scheme</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGE DEALS SECTION -->
+    <section id="packages" class="tier-section">
+        <div class="section-header">
+            <h2>The Experience Tiers</h2>
+            <p>Select Your Foundational Experience</p>
+        </div>
+        
+        <div class="tier-grid">
+            <div class="tier-card">
+                <div class="tier-meta">
+                    <h3>The Foundational Romance</h3>
+                    <p class="tier-tagline">Elegant & High-Impact Staging</p>
+                    <div class="tier-price">$350</div>
+                    <p class="tier-hold-text">Requires a 25% non-refundable retainer at confirmation</p>
+                    
+                    <ul class="tier-features">
+                        <li>Illuminated Message Choice (<em>You + Me</em> OR <em>Always & Forever</em>) or Custom Balloon Message</li>
+                        <li>1 Dozen Fresh Roses OR Premium Custom Seasonal Floral Arrangement</li>
+                        <li>Classic Silk Rose Petal Staged Pathway</li>
+                        <li>Ambient Battery-Operated LED Tealight Candle Layout</li>
+                        <li>Floating Ceiling Balloons (Selectable Luxury Color Schemes)</li>
+                        <li>1 Bottle of Fine Champagne + 2 Classic Toasting Glasses</li>
+                    </ul>
+
+                    <p class="tier-intake-note">
+                        *Optional custom hand-etched glass upgrade available within the design form below.
+                    </p>
+                </div>
+                <a href="#intake" onclick="selectTier('Foundational Romance')" class="cta-btn" style="text-align: center;">Select Foundational Experience</a>
+            </div>
+
+            <div class="tier-card">
+                <div class="tier-meta">
+                    <h3>The Grand Milestone</h3>
+                    <p class="tier-tagline">The Full All-Inclusive Arch Experience</p>
+                    <div class="tier-price">$600</div>
+                    <p class="tier-hold-text">Requires a 25% non-refundable retainer at confirmation</p>
+                    
+                    <ul class="tier-features">
+                        <li>Illuminated Message Choice (<em>You + Me</em> OR <em>Always & Forever</em>) or Custom Balloon Message</li>
+                        <li>Structural Table-Size Presentation Arch (Upgrades to Queen/King Scale Available)</li>
+                        <li>2 Dozen Fresh Roses OR Premium Custom Seasonal Floral Arrangement</li>
+                        <li>Floating Ceiling Balloons + Dreamy Floating Rose Accents</li>
+                        <li>Immersive, Heavy Dual Pathway of Interlaced Candles and Rose Petals</li>
+                        <li>1 Bottle of Fine Champagne + **2 Custom Hand-Etched Keepsake Glasses** (Included)</li>
+                        <li>Premium Artisanal Box of Chocolates & Specially Curated Keepsake Gift</li>
+                    </ul>
+
+                    <p class="tier-intake-note">
+                        *Tailor arch structural sizes and color schemes directly in the studio designer below.
+                    </p>
+                </div>
+                <a href="#intake" onclick="selectTier('Grand Milestone')" class="cta-btn" style="text-align: center;">Select Grand Milestone Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTAKE FORM SECTION -->
+    <section id="intake" class="intake-section">
+        <div class="section-header">
+            <h2>Design Studio Intake</h2>
+            <p>Initiate Your Architectural Space Rendering</p>
+        </div>
+
+        <div class="intake-container">
+            <form id="architect-form" class="intake-form" action="https://usebasin.com/f/2d95c93b14d6" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-name">Full Name</label>
+                        <input type="text" id="client-name" name="name" required placeholder="Eleni Thompson">
+                    </div>
+                    <div class="form-group">
+                        <label for="client-email">Email Address</label>
+                        <input type="email" id="client-email" name="email" required placeholder="eleni@example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="experience-tier">Selected Foundational Experience</label>
+                        <select id="experience-tier" name="selected_tier" required onchange="handleTierChange(this.value)">
+                            <option value="" disabled selected>Choose your experience framework...</option>
+                            <option value="Foundational Romance">The Foundational Romance — $350</option>
+                            <option value="Grand Milestone">The Grand Milestone — $600</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="target-date">Requested Event Date</label>
+                        <input type="date" id="target-date" name="event_date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="message-option">Illuminated / Balloon Message Concept</label>
+                        <select id="message-option" name="message_concept" required>
+                            <option value="" disabled selected>Select message display...</option>
+                            <option value="You + Me">Light Display: "You + Me"</option>
+                            <option value="Always & Forever">Light Display: "Always & Forever"</option>
+                            <option value="Custom Balloon Message">Custom Balloon Letter Message</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="color-palette">Curated Color Story Palette</label>
+                        <select id="color-palette" name="color_palette" required>
+                            <option value="" disabled selected>Select color palette theme...</option>
+                            <option value="Classic Romance">Classic Romance (Crimson, Matte White, Polished Gold)</option>
+                            <option value="Sedona Sunset">Sedona Sunset (Blush, Terracotta, Rose Gold/Champagne)</option>
+                            <option value="Modern Luxury">Modern Luxury (Monochrome Black, White, Polished Silver)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="floral-option">Floral Structural Preference</label>
+                        <select id="floral-option" name="floral_preference" required>
+                            <option value="" disabled selected>Select floral type...</option>
+                            <option value="Fresh Roses">Classic Premium Fresh Roses</option>
+                            <option value="Seasonal Arrangement">Custom Curated Seasonal Floral Arrangement</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="venue-details">Staging Venue Location or Type</label>
+                        <input type="text" id="venue-details" name="venue" required placeholder="e.g., Amara Resort Sedona, Private AirBnB">
+                    </div>
+                </div>
+
+                <div id="p1-etching-box" class="conditional-box">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="p1-etching-checkbox" name="p1_etched_upgrade" value="Yes" onchange="toggleP1EtchText(this.checked)">
+                        <span>Upgrade to Custom Hand-Etched Keepsake Glasses (+$15)</span>
+                    </label>
+                    <div id="p1-text-group" class="form-group" style="display: none; margin-top: 10px;">
+                        <label for="p1-etching-text">Custom Engraving Instructions</label>
+                        <input type="text" id="p1-etching-text" name="p1_etching_notes" placeholder="e.g., A & M 10.24.26">
+                    </div>
+                </div>
+
+                <div id="p2-structural-box" class="conditional-box">
+                    <div class="form-group">
+                        <label for="arch-size">Structural Framework Scale & Size</label>
+                        <select id="arch-size" name="arch_scale">
+                            <option value="Standard Table Arch">Standard Table Arch (Included — Displays over Toast Table)</option>
+                            <option value="Medium Queen Arch">Medium Queen-Size Arch (+$100 — Frames a headboard or statement wall)</option>
+                            <option value="Large King Arch">Large King-Size Arch (+$200 — Extra grand sweeping structural display)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-top: 5px;">
+                        <label for="p2-etching-text">Included Keepsake Glass Engraving Instructions</label>
+                        <input type="text" id="p2-etching-text" name="p2_etching_notes" placeholder="e.g., Forever Yours 2026">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspiration-images">Upload Inspiration Framework (Pinterest / Layouts)</label>
+                    <input type="file" id="inspiration-images" name="inspiration_photos" accept="image/*" multiple>
+                </div>
+
+                <div class="form-group">
+                    <label for="vision-canvas">Bespoke Structural Request & Vision</label>
+                    <textarea id="vision-canvas" name="vision_notes" placeholder="Detail your exact vision, color variations, custom structural requests or specific setup schedules..."></textarea>
+                </div>
+
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>Luxury Experience Agreement & Terms</label>
+                    <div style="background: var(--input-bg); border: 1px solid rgba(212,175,55,0.15); padding: 20px; height: 180px; overflow-y: scroll; font-size: 0.75rem; color: rgba(234,227,217,0.8); font-weight: 300; line-height: 1.5; margin-bottom: 15px;">
+                        <p style="color: var(--gold-accent); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Moments 2 Memories — Luxury Experience Agreement</p>
+                        
+                        <p style="margin-bottom: 10px;"><strong>1. DESIGN LOCK & BOOKING POLICIES</strong><br>
+                        <strong>Section 1.1: The 72-Hour Design Lock & Processing Window.</strong> To ensure we can source and prepare your custom decor, all design choices, color schemes, custom signs, and venue access details must be finalized and signed off within 72 hours of your initial booking.</p>
+                        <p><strong>1.2 Retainer Policy:</strong> A 25% non-refundable retainer is required to officially hold and secure your chosen date on our layout calendar. The remaining balance balance must be fully cleared prior to room staging orchestration.</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Design Project</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="reviews-section">
+        <div class="section-header">
+            <h2>The Guest Chronicle</h2>
+            <p>Stories of Artistry & Celebration</p>
+        </div>
+        <div class="reviews-grid-container">
+            <div class="review-panel">
+                <h3>Leave a Memory</h3>
+                <iframe class="reviews-embed" src="https://airtable.com/embed/appYOUR_REVIEW_FORM_ID"></iframe>
+            </div>
+            <div class="review-panel">
+                <h3>Our Guestbook</h3>
+                <iframe class="reviews-embed" src="https://airtable.com/embed/appYOUR_REVIEW_WALL_ID"></iframe>
+            </div>
         </div>
     </section>
 
@@ -261,5 +889,33 @@
         <p>&copy; 2026 Moments 2 Memories. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        function selectTier(tierName) {
+            const tierSelect = document.getElementById('experience-tier');
+            tierSelect.value = tierName;
+            handleTierChange(tierName);
+        }
+
+        function handleTierChange(value) {
+            const p1Box = document.getElementById('p1-etching-box');
+            const p2Box = document.getElementById('p2-structural-box');
+            
+            if (value === 'Foundational Romance') {
+                p1Box.style.display = 'flex';
+                p2Box.style.display = 'none';
+            } else if (value === 'Grand Milestone') {
+                p1Box.style.display = 'none';
+                p2Box.style.display = 'flex';
+            } else {
+                p1Box.style.display = 'none';
+                p2Box.style.display = 'none';
+            }
+        }
+
+        function toggleP1EtchText(isChecked) {
+            const textGroup = document.getElementById('p1-text-group');
+            textGroup.style.display = isChecked ? 'flex' : 'none';
+        }
+    </script>
 </body>
 </html>
