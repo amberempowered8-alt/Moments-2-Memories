@@ -512,21 +512,20 @@
         }
 
         .reviews-container {
-            max-width: 750px;
+            max-width: 850px;
             margin: 0 auto;
             background: var(--panel-bg);
             border: 1px solid rgba(212,175,55,0.15);
-            padding: 40px;
+            padding: 20px;
             border-radius: 8px;
             text-align: center;
         }
 
-        /* Airtable Embed Container Support */
+        /* Airtable Embed Containment */
         .reviews-embed {
             width: 100%;
             background: transparent;
-            border: none;
-            min-height: 450px;
+            display: block;
         }
 
         footer {
@@ -819,12 +818,8 @@
                         
                         <p style="margin-bottom: 10px;"><strong>3. ACCESSIBILITY, LIABILITY, & COMMUNICATION BOUNDARY</strong><br>
                         <strong>Section 3.1: Professional Communication Standards.</strong> Moments 2 Memories operates as a premium design office. To ensure every detail of your setup is perfectly tracked and executed without mistakes, we rely on structured written blueprints and scheduled consultation calls. We kindly request that clients use our formal messaging channels rather than continuous, unscheduled text messages or phone calls.</p>
-                        
-                        <p style="margin-bottom: 10px;"><strong>Section 3.2: Property Access & Liability Disclaimer.</strong> The client guarantees our production crew legal, uninterrupted access to the event space during our scheduled setup and teardown times. Moments 2 Memories is not responsible for any venue-imposed fines, security ejections, or cleaning fees resulting from a property’s hidden rules regarding candles, florals, or outside vendors.</p>
                     </div>
                 </div>
-
-                <button type="submit" class="cta-btn" style="width: 100%; padding: 15px; font-size: 0.85rem;">Submit Design Framework Proposal</button>
             </form>
         </div>
     </section>
@@ -832,50 +827,45 @@
     <!-- REVIEWS SECTION -->
     <section id="reviews" class="reviews-section">
         <div class="section-header">
-            <h2>Guest Shared Experiences</h2>
-            <p>Reflections From Curated Milestone Spaces</p>
+            <h2>Guest Ledger & Reviews</h2>
+            <p>Live Sentiment Stream from Our Experience Alumni</p>
         </div>
+
         <div class="reviews-container">
-            <!-- Replace the placeholder below with your real Airtable Shared View Iframe embed link -->
-            <div style="padding: 20px; border: 1px dashed rgba(212,175,55,0.3); color: var(--gold-accent); font-size: 0.85rem;">
-                <p>Airtable Live Guest Ledger Connection Area</p>
-                <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 5px; color: var(--text-light);">Drop your Airtable base iframe element code right here to stream live reviews.</p>
-            </div>
+            <iframe class="airtable-embed reviews-embed" src="https://airtable.com/embed/appkNxXO35HnkU2YC/shrD5D7nAlWO9WcNu?viewControls=on" frameborder="0" onmousewheel="" height="533" style="background: transparent; border: 1px solid rgba(212,175,55,0.15);"></iframe>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Moments 2 Memories. All Rights Reserved. Luxury Event Architecture.</p>
+        &copy; 2026 Moments 2 Memories. All Rights Reserved. Luxury Space Architecture.
     </footer>
 
     <script>
-        function handleTierChange(val) {
+        function selectTier(tierName) {
+            const tierSelect = document.getElementById('experience-tier');
+            tierSelect.value = tierName;
+            handleTierChange(tierName);
+        }
+
+        function handleTierChange(value) {
             const p1Box = document.getElementById('p1-etching-box');
             const p2Box = document.getElementById('p2-structural-box');
             
-            if (val === "Foundational Romance") {
-                p1Box.style.display = "flex";
-                p2Box.style.display = "none";
-            } else if (val === "Grand Milestone") {
-                p1Box.style.display = "none";
-                p2Box.style.display = "flex";
+            if (value === 'Foundational Romance') {
+                p1Box.style.display = 'flex';
+                p2Box.style.display = 'none';
+            } else if (value === 'Grand Milestone') {
+                p1Box.style.display = 'none';
+                p2Box.style.display = 'flex';
             } else {
-                p1Box.style.display = "none";
-                p2Box.style.display = "none";
+                p1Box.style.display = 'none';
+                p2Box.style.display = 'none';
             }
         }
 
-        function toggleP1EtchText(checked) {
+        function toggleP1EtchText(isChecked) {
             const textGroup = document.getElementById('p1-text-group');
-            textGroup.style.display = checked ? "flex" : "none";
-        }
-
-        function selectTier(tierName) {
-            const selectEl = document.getElementById('experience-tier');
-            if (selectEl) {
-                selectEl.value = tierName;
-                handleTierChange(tierName);
-            }
+            textGroup.style.display = isChecked ? 'flex' : 'none';
         }
     </script>
 </body>
