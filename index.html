@@ -54,7 +54,7 @@
             height: 100%;
             z-index: 9999;
             display: flex;
-            perspective: 2000px; /* Enhanced 3D perspective depth */
+            perspective: 2000px;
             overflow: hidden;
             pointer-events: none;
         }
@@ -67,15 +67,15 @@
             border: 8px solid #19120E;
             box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
             position: relative;
-            /* Calibrated to a heavy 3.5s sweeping luxury ease curve */
-            transition: transform 3.5s cubic-bezier(0.25, 1, 0.3, 1);
+            /* Calibrated to a swifter 1.8s heavy estate-glide curve */
+            transition: transform 1.8s cubic-bezier(0.25, 1, 0.3, 1);
             transform-style: preserve-3d;
             pointer-events: auto;
         }
 
         .gateway-door-left {
             transform-origin: left center;
-            border-right: 2px solid var(--gold-accent); /* Elegant center seam line */
+            border-right: 2px solid var(--gold-accent);
         }
 
         .gateway-door-right {
@@ -83,7 +83,6 @@
             border-left: 2px solid var(--gold-accent);
         }
 
-        /* Luxury Classic Panel Moulding Insets on the Doors */
         .gateway-door::before {
             content: '';
             position: absolute;
@@ -95,19 +94,18 @@
             box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
         }
 
-        /* FIXED: Floating Branding Container Over the Entire Seam Window */
+        /* Floating Branding Container Over the Center Seam Window */
         .gateway-branding {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 10000; /* Floats completely over both doors */
+            z-index: 10000;
             width: 100%;
             max-width: 500px;
             padding: 0 20px;
             text-align: center;
-            /* Fades out smoothly right as the doors unlock */
-            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             pointer-events: none;
         }
 
@@ -129,15 +127,14 @@
 
         #grand-gateway.open .gateway-branding {
             opacity: 0;
-            transform: translate(-50%, -50%) scale(0.95);
+            transform: translate(-50%, -50%) scale(0.97);
         }
 
-        /* Vaporize container entirely when open sequence completes */
         #grand-gateway.vanished {
             display: none !important;
         }
 
-        /* Navigation Bar - Clean Minimal Design */
+        /* Navigation Bar */
         nav {
             position: fixed;
             top: 0;
@@ -198,7 +195,7 @@
             box-shadow: 0 0 15px rgba(212,175,55,0.4);
         }
 
-        /* Hero Canvas with Video Background Architecture */
+        /* Hero Canvas */
         .hero-canvas {
             height: 90vh;
             display: flex;
@@ -267,7 +264,7 @@
             font-weight: 300;
         }
 
-        /* Animation Layout Properties */
+        /* Scroll Reveal Framework */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(35px);
@@ -363,7 +360,7 @@
             letter-spacing: 1px;
         }
 
-        /* Photos Section - Clean Minimal Style */
+        /* Photos Section */
         .lookbook-section {
             padding: 120px 5%;
             background: #171210;
@@ -439,6 +436,25 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--gold-accent);
+        }
+
+        /* Beautiful layout formatting for the Scheduling Timeline Notice */
+        .section-header .timeline-notice {
+            font-size: 0.85rem;
+            max-width: 620px;
+            margin: 25px auto 0 auto;
+            color: var(--text-light);
+            opacity: 0.85;
+            font-weight: 300;
+            line-height: 1.6;
+            border-top: 1px solid rgba(212,175,55,0.15);
+            padding-top: 20px;
+        }
+
+        .section-header .timeline-notice strong {
+            color: var(--gold-accent);
+            font-weight: 400;
+            letter-spacing: 1px;
         }
 
         .tier-grid {
@@ -693,7 +709,7 @@
 </head>
 <body>
 
-    <!-- 🚪 INTERACTIVE 3D DOOR ENTRY WAY (FIXED SEAM & PACING) -->
+    <!-- 🚪 INTERACTIVE 3D DOOR ENTRY WAY (CALIBRATED TIMING) -->
     <div id="grand-gateway">
         <div class="gateway-door gateway-door-left"></div>
         <div class="gateway-branding">
@@ -854,6 +870,11 @@
         <div class="section-header">
             <h2>Design Studio Intake</h2>
             <p>Initiate Your Architectural Space Rendering</p>
+            
+            <!-- 🗓️ PROMINENT SCHEDULING RUNWAY NOTICE CONTAINER -->
+            <div class="timeline-notice">
+                <strong>Orchestration Timeline Notice:</strong> To source premium custom florals and secure date logistics, foundational environments require a minimum of <strong>14 days advance notice</strong>. Large scale venue installations or grand group events require a <strong>30-day structural runway</strong>.
+            </div>
         </div>
 
         <div class="intake-container">
@@ -980,16 +1001,16 @@
         document.addEventListener("DOMContentLoaded", function() {
             const gateway = document.getElementById("grand-gateway");
             
-            // 🕰️ DELIBERATE UNLOCK TIMING PIPELINE
-            // Holds pristine centered logo for 1.2 seconds, then begins the grand open
+            // 🕰️ ADJUSTED LIGHT-SPEED VELOCITY PIPELINE
+            // Holds pristine centered card for a quick 0.5s heartbeat, then glides wide
             setTimeout(() => {
                 gateway.classList.add("open");
-            }, 1200);
+            }, 500);
 
-            // Clears the overlay framework once the 3.5s doors finish swinging wide
+            // Evaporates preloader background from tree right as the 1.8s swing finishes
             setTimeout(() => {
                 gateway.classList.add("vanished");
-            }, 4800);
+            }, 2300);
 
             // Core Scroll Reveal Observers
             const scrollElements = document.querySelectorAll("section, .hero-content");
