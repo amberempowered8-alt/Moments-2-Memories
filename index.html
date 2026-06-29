@@ -59,7 +59,6 @@
             pointer-events: none;
         }
 
-        /* The Door Panel Baseline Architecture */
         .gateway-door {
             width: 50%;
             height: 100%;
@@ -67,7 +66,6 @@
             border: 8px solid #19120E;
             box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
             position: relative;
-            /* Calibrated to a swifter 1.8s heavy estate-glide curve */
             transition: transform 1.8s cubic-bezier(0.25, 1, 0.3, 1);
             transform-style: preserve-3d;
             pointer-events: auto;
@@ -94,7 +92,6 @@
             box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
         }
 
-        /* Floating Branding Container Over the Center Seam Window */
         .gateway-branding {
             position: absolute;
             top: 50%;
@@ -105,7 +102,7 @@
             max-width: 500px;
             padding: 0 20px;
             text-align: center;
-            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 0.4s ease, transform 0.4s ease; /* Snappier fade out to prevent flash overlap */
             pointer-events: none;
         }
 
@@ -116,7 +113,6 @@
             filter: drop-shadow(0 15px 30px rgba(0,0,0,0.85));
         }
 
-        /* Trigger States for Animation Orchestration */
         #grand-gateway.open .gateway-door-left {
             transform: rotateY(-115deg);
         }
@@ -438,7 +434,6 @@
             color: var(--gold-accent);
         }
 
-        /* Beautiful layout formatting for the Scheduling Timeline Notice */
         .section-header .timeline-notice {
             font-size: 0.85rem;
             max-width: 620px;
@@ -709,7 +704,7 @@
 </head>
 <body>
 
-    <!-- 🚪 INTERACTIVE 3D DOOR ENTRY WAY (CALIBRATED TIMING) -->
+    <!-- 🚪 INTERACTIVE 3D DOOR ENTRY WAY -->
     <div id="grand-gateway">
         <div class="gateway-door gateway-door-left"></div>
         <div class="gateway-branding">
@@ -728,9 +723,9 @@
         <a href="#intake" class="cta-btn">Book An Experience</a>
     </nav>
 
-    <!-- HERO CANVAS -->
+    <!-- HERO CANVAS (FIXED: Added preload architecture to avoid split-second flash) -->
     <header class="hero-canvas">
-        <video class="hero-video" autoplay loop muted playsinline poster="images/logo.jpeg">
+        <video class="hero-video" autoplay loop muted playsinline preload="auto">
             <source src="images/hero-bg.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -871,9 +866,8 @@
             <h2>Design Studio Intake</h2>
             <p>Initiate Your Architectural Space Rendering</p>
             
-            <!-- 🗓️ PROMINENT SCHEDULING RUNWAY NOTICE CONTAINER -->
             <div class="timeline-notice">
-                <strong>Orchestration Timeline Notice:</strong> To source premium custom florals and secure date logistics, foundational environments require a minimum of <strong>14 days advance notice</strong>. Large scale venue installations or grand group events require a <strong>30-day structural runway</strong>.
+                <strong>Orchestration Timeline Notice:</strong> To secure custom floral curations and premier architectural staging, foundational frames require a minimum of <strong>14 days advance notice</strong>. Grand milestone galas and larger group venues require a <strong>30-day structural design runway</strong>.
             </div>
         </div>
 
@@ -1001,18 +995,17 @@
         document.addEventListener("DOMContentLoaded", function() {
             const gateway = document.getElementById("grand-gateway");
             
-            // 🕰️ ADJUSTED LIGHT-SPEED VELOCITY PIPELINE
-            // Holds pristine centered card for a quick 0.5s heartbeat, then glides wide
+            // Starts the gateway release sequence smoothly
             setTimeout(() => {
                 gateway.classList.add("open");
             }, 500);
 
-            // Evaporates preloader background from tree right as the 1.8s swing finishes
+            // Deletes the gateway structural markup out of layout tree completely
             setTimeout(() => {
                 gateway.classList.add("vanished");
             }, 2300);
 
-            // Core Scroll Reveal Observers
+            // Scroll Reveal Configurations
             const scrollElements = document.querySelectorAll("section, .hero-content");
             scrollElements.forEach(el => el.classList.add("reveal-on-scroll"));
 
