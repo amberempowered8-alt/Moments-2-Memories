@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,300;0,400;0,600;1,300&family=Montserrat:wght=200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -110,18 +110,48 @@
             box-shadow: 0 0 15px rgba(212,175,55,0.4);
         }
 
-        /* Hero Canvas */
+        /* Hero Canvas with Video Background Architecture */
         .hero-canvas {
-            height: 85vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, #1C1613 0%, #2A201A 50%, #1C1613 100%);
-            padding: 0 20px;
             position: relative;
             border-bottom: 1px solid rgba(212,175,55,0.1);
+            overflow: hidden;
+            background-color: var(--bg-dark);
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Dark overlay mask to maintain typography contrast */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(28,22,19,0.85) 0%, rgba(42,32,26,0.75) 50%, rgba(28,22,19,0.85) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 0 20px;
         }
 
         .hero-canvas::after {
@@ -132,6 +162,7 @@
             height: 80px;
             background: var(--gold-accent);
             opacity: 0.5;
+            z-index: 3;
         }
 
         .hero-title {
@@ -164,19 +195,20 @@
         .identity-visual {
             position: relative;
             border: 1px solid rgba(44,37,32,0.1);
-            padding: 20px;
+            padding: 15px;
             background: #FFF;
             display: flex;
             justify-content: center;
             align-items: center;
             box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            aspect-ratio: 16/9;
+            overflow: hidden;
         }
 
-        .identity-visual img {
+        .identity-visual video {
             width: 100%;
-            height: auto;
-            max-height: 350px;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
         }
 
         .identity-text h2 {
@@ -590,12 +622,12 @@
         @media (max-width: 768px) {
             nav { padding: 20px; }
             .nav-links { display: none; }
-            .hero-title { font-size: 3.2rem; }
             .identity-block { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
             .tier-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .intake-container { padding: 30px 20px; }
             .lookbook-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -613,15 +645,25 @@
         <a href="#intake" class="cta-btn">Book An Experience</a>
     </nav>
 
+    <!-- CINEMATIC VIDEO HERO BACKGROUND -->
     <header class="hero-canvas">
-        <h1 class="hero-title">Moments 2 Memories</h1>
-        <p class="hero-subtitle">Luxury Romantic Architecture</p>
+        <video class="hero-video" autoplay loop muted playsinline poster="images/proposal_classic_romance.jpg">
+            <source src="images/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Moments 2 Memories</h1>
+            <p class="hero-subtitle">Luxury Romantic Architecture</p>
+        </div>
     </header>
 
     <!-- ABOUT US SECTION -->
     <section id="about-us" class="identity-block">
         <div class="identity-visual">
-            <img src="images/logo.jpeg" alt="Moments 2 Memories Logo">
+            <!-- Dynamic Slow Motion / Low Light Ambience Video Frame -->
+            <video autoplay loop muted playsinline poster="images/proposal_classic_romance.jpg">
+                <source src="images/about-ambience.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="identity-text">
             <h2>Intentional luxury built around your love story.</h2>
@@ -869,7 +911,6 @@
         <div class="reviews-single-container">
             <div class="review-panel">
                 <h3>Our Guestbook</h3>
-                <!-- Custom layout embedded cleanly with view controls disabled -->
                 <iframe class="reviews-embed" src="https://airtable.com/embed/appkNxXO35HnkU2YC/shrskQHdrYcnbcsRO?viewControls=off"></iframe>
             </div>
         </div>
