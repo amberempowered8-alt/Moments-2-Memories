@@ -45,7 +45,7 @@
             font-weight: 300;
         }
 
-        /* 🚪 CINEMATIC 3D GATEWAY PRELOADER OVERLAY */
+        /* 🚪 CINEMATIC PORTAL EXPANSION OVERLAY (REPLACED DOOR SWING) */
         #grand-gateway {
             position: fixed;
             top: 0;
@@ -53,35 +53,19 @@
             width: 100%;
             height: 100%;
             z-index: 9999;
+            background: radial-gradient(circle at center, #2F221B 0%, var(--door-brown) 100%);
             display: flex;
-            perspective: 2000px;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
             pointer-events: none;
+            /* Smoothly scales up and clips open outward from the center circle */
+            clip-path: circle(100% at 50% 50%);
+            transition: clip-path 1.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 1.8s ease;
         }
 
-        .gateway-door {
-            width: 50%;
-            height: 100%;
-            background: radial-gradient(circle at center, #2F221B 0%, var(--door-brown) 100%);
-            border: 8px solid #19120E;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
-            position: relative;
-            transition: transform 1.8s cubic-bezier(0.25, 1, 0.3, 1);
-            transform-style: preserve-3d;
-            pointer-events: auto;
-        }
-
-        .gateway-door-left {
-            transform-origin: left center;
-            border-right: 2px solid var(--gold-accent);
-        }
-
-        .gateway-door-right {
-            transform-origin: right center;
-            border-left: 2px solid var(--gold-accent);
-        }
-
-        .gateway-door::before {
+        /* Subtle luxury background overlay inside the curtain wall */
+        #grand-gateway::before {
             content: '';
             position: absolute;
             top: 5%;
@@ -89,20 +73,21 @@
             right: 5%;
             bottom: 5%;
             border: 2px solid rgba(212, 175, 55, 0.15);
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.6);
+            pointer-events: none;
+            transition: opacity 0.6s ease;
         }
 
+        /* Floating Center Logo Card Framework */
         .gateway-branding {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
             z-index: 10000;
             width: 100%;
             max-width: 500px;
             padding: 0 20px;
             text-align: center;
-            transition: opacity 0.4s ease, transform 0.4s ease; /* Snappier fade out to prevent flash overlap */
+            /* Logo smoothly handles scale translation towards user */
+            transition: opacity 0.8s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
             pointer-events: none;
         }
 
@@ -113,17 +98,19 @@
             filter: drop-shadow(0 15px 30px rgba(0,0,0,0.85));
         }
 
-        #grand-gateway.open .gateway-door-left {
-            transform: rotateY(-115deg);
-        }
-
-        #grand-gateway.open .gateway-door-right {
-            transform: rotateY(115deg);
+        /* Trigger States for Center-Out Expansion Orchestration */
+        #grand-gateway.open {
+            clip-path: circle(0% at 50% 50%); /* Collapses the clip boundary down to a center circle out of sight */
+            opacity: 0;
         }
 
         #grand-gateway.open .gateway-branding {
             opacity: 0;
-            transform: translate(-50%, -50%) scale(0.97);
+            transform: scale(1.1); /* Gently scales toward user during fade */
+        }
+
+        #grand-gateway.open::before {
+            opacity: 0;
         }
 
         #grand-gateway.vanished {
@@ -594,7 +581,7 @@
             width: 100%;
         }
 
-        /* 🗓️ VISIBLE CALENDAR ICON MODIFICATIONS */
+        /* 🗓️ HIGH-VISIBILITY DATE PICKER CALENDAR CORRECTIONS */
         .form-group input[type="date"] {
             color: var(--text-light);
         }
@@ -721,13 +708,11 @@
 </head>
 <body>
 
-    <!-- 🚪 INTERACTIVE 3D DOOR ENTRY WAY -->
+    <!-- 🚪 PORTAL PRELOADER OVERLAY -->
     <div id="grand-gateway">
-        <div class="gateway-door gateway-door-left"></div>
         <div class="gateway-branding">
             <img src="images/logo.jpeg" alt="Moments 2 Memories Signature Mark">
         </div>
-        <div class="gateway-door gateway-door-right"></div>
     </div>
 
     <nav>
@@ -740,7 +725,7 @@
         <a href="#intake" class="cta-btn">Book An Experience</a>
     </nav>
 
-    <!-- HERO CANVAS (FIXED: Added preload architecture to avoid split-second flash) -->
+    <!-- HERO CANVAS -->
     <header class="hero-canvas">
         <video class="hero-video" autoplay loop muted playsinline preload="auto">
             <source src="images/hero-bg.mp4" type="video/mp4">
@@ -884,7 +869,7 @@
             <p>Initiate Your Architectural Space Rendering</p>
             
             <div class="timeline-notice">
-                <strong>Orchestration Timeline Notice:</strong> To secures custom floral curations and premier architectural staging, foundational frames require a minimum of <strong>14 days advance notice</strong>. Grand milestone galas and larger group venues require a <strong>30-day structural design runway</strong>.
+                <strong>Orchestration Timeline Notice:</strong> To secure custom floral curations and premier architectural staging, foundational environments require a minimum of <strong>14 days advance notice</strong>. Grand milestone galas and larger group venues require a <strong>30-day structural design runway</strong>.
             </div>
         </div>
 
@@ -1012,12 +997,12 @@
         document.addEventListener("DOMContentLoaded", function() {
             const gateway = document.getElementById("grand-gateway");
             
-            // Starts the gateway release sequence smoothly
+            // Holds the centered logo card for a brief 0.5s moment, then opens outward smoothly from the circle center
             setTimeout(() => {
                 gateway.classList.add("open");
             }, 500);
 
-            // Deletes the gateway structural markup out of layout tree completely
+            // Clean deletion of the overlay container once the portal mask expands fully out of sight
             setTimeout(() => {
                 gateway.classList.add("vanished");
             }, 2300);
