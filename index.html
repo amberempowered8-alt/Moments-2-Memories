@@ -45,7 +45,7 @@
             font-weight: 300;
         }
 
-        /* 🚪 CINEMATIC PORTAL EXPANSION OVERLAY (REPLACED DOOR SWING) */
+        /* 🚪 CINEMATIC PORTAL EXPANSION OVERLAY */
         #grand-gateway {
             position: fixed;
             top: 0;
@@ -59,12 +59,10 @@
             align-items: center;
             overflow: hidden;
             pointer-events: none;
-            /* Smoothly scales up and clips open outward from the center circle */
             clip-path: circle(100% at 50% 50%);
             transition: clip-path 1.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 1.8s ease;
         }
 
-        /* Subtle luxury background overlay inside the curtain wall */
         #grand-gateway::before {
             content: '';
             position: absolute;
@@ -78,7 +76,6 @@
             transition: opacity 0.6s ease;
         }
 
-        /* Floating Center Logo Card Framework */
         .gateway-branding {
             position: relative;
             z-index: 10000;
@@ -86,7 +83,6 @@
             max-width: 500px;
             padding: 0 20px;
             text-align: center;
-            /* Logo smoothly handles scale translation towards user */
             transition: opacity 0.8s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
             pointer-events: none;
         }
@@ -98,15 +94,14 @@
             filter: drop-shadow(0 15px 30px rgba(0,0,0,0.85));
         }
 
-        /* Trigger States for Center-Out Expansion Orchestration */
         #grand-gateway.open {
-            clip-path: circle(0% at 50% 50%); /* Collapses the clip boundary down to a center circle out of sight */
+            clip-path: circle(0% at 50% 50%);
             opacity: 0;
         }
 
         #grand-gateway.open .gateway-branding {
             opacity: 0;
-            transform: scale(1.1); /* Gently scales toward user during fade */
+            transform: scale(1.1);
         }
 
         #grand-gateway.open::before {
@@ -581,7 +576,7 @@
             width: 100%;
         }
 
-        /* 🗓️ HIGH-VISIBILITY DATE PICKER CALENDAR CORRECTIONS */
+        /* 🗓️ VISIBLE CALENDAR ICON MODIFICATIONS */
         .form-group input[type="date"] {
             color: var(--text-light);
         }
@@ -767,7 +762,7 @@
         </div>
     </section>
 
-    <!-- PHOTOS SECTION -->
+    <!-- PHOTOS SECTION (UPDATED GRID SLOTS) -->
     <section id="photos" class="lookbook-section">
         <div class="section-header">
             <h2>The Curated Canvas</h2>
@@ -783,9 +778,9 @@
             </div>
             
             <div class="lookbook-item">
-                <img src="images/anniversary1.png" alt="Luxury Canopy Staging with Ambient Candlelight Layout">
+                <img src="images/engagement.png" alt="Luxury Engagement Celebration Framework">
                 <div class="lookbook-overlay">
-                    <p>Modern Candlelight Story</p>
+                    <p>Bespoke Engagement Story</p>
                 </div>
             </div>
             
@@ -797,9 +792,9 @@
             </div>
 
             <div class="lookbook-item">
-                <img src="images/congratulations-tier.jpg" alt="Mr and Mrs Milestone Floral Design">
+                <img src="images/engagement1.png" alt="Milestone Engagement Architectural Layout">
                 <div class="lookbook-overlay">
-                    <p>Bespoke Floral Staging</p>
+                    <p>Signature Proposal Staging</p>
                 </div>
             </div>
         </div>
@@ -869,7 +864,7 @@
             <p>Initiate Your Architectural Space Rendering</p>
             
             <div class="timeline-notice">
-                <strong>Orchestration Timeline Notice:</strong> To secure custom floral curations and premier architectural staging, foundational environments require a minimum of <strong>14 days advance notice</strong>. Grand milestone galas and larger group venues require a <strong>30-day structural design runway</strong>.
+                <strong>Orchestration Timeline Notice:</strong> To secure custom floral curations and premier architectural staging, foundational frames require a minimum of <strong>14 days advance notice</strong>. Grand milestone galas and larger group venues require a <strong>30-day structural design runway</strong>.
             </div>
         </div>
 
@@ -997,17 +992,15 @@
         document.addEventListener("DOMContentLoaded", function() {
             const gateway = document.getElementById("grand-gateway");
             
-            // Holds the centered logo card for a brief 0.5s moment, then opens outward smoothly from the circle center
             setTimeout(() => {
                 gateway.classList.add("open");
             }, 500);
 
-            // Clean deletion of the overlay container once the portal mask expands fully out of sight
             setTimeout(() => {
                 gateway.classList.add("vanished");
             }, 2300);
 
-            // Scroll Reveal Configurations
+            // Core Scroll Reveal Observers
             const scrollElements = document.querySelectorAll("section, .hero-content");
             scrollElements.forEach(el => el.classList.add("reveal-on-scroll"));
 
